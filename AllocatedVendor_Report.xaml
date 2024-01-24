@@ -1,0 +1,578 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="AllocatedVendor_Report" this:AllocatedVendor_Report.in_OutputFilePath="C:\Users\Admin\Documents\UiPath\UploadFileOnZohoFrom_ClickpostAndUniWare\Data\Output\Report_11122023021708.xlsx" this:AllocatedVendor_Report.in_VendorPOCalculation_SheetName="Vendor PO Calculation" this:AllocatedVendor_Report.in_TempFolder="C:\Users\Admin\Documents\UiPath\UploadFileOnZohoFrom_ClickpostAndUniWare\Data\Temp\" this:AllocatedVendor_Report.in_PO_RecieptPath="C:\Users\Admin\Documents\UiPath\UploadFileOnZohoFrom_ClickpostAndUniWare\Data\PO Receipts\" this:AllocatedVendor_Report.in_VendorPOFilePath="C:\Users\Admin\Documents\UiPath\UploadFileOnZohoFrom_ClickpostAndUniWare\Data\PO Receipts" this:AllocatedVendor_Report.in_VendorGroupFile="C:\Users\Admin\Documents\UiPath\UploadFileOnZohoFrom_ClickpostAndUniWare\Data\Vendor Groups File.xlsx" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_OutputFilePath" Type="InArgument(x:String)" />
+    <x:Property Name="in_VendorPOCalculation_SheetName" Type="InArgument(x:String)" />
+    <x:Property Name="in_TempFolder" Type="InArgument(x:String)" />
+    <x:Property Name="Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+    <x:Property Name="in_PO_RecieptPath" Type="InArgument(x:String)" />
+    <x:Property Name="in_VendorPOFilePath" Type="InArgument(x:String)" />
+    <x:Property Name="dt_CompletedVendorName" Type="OutArgument(sd:DataTable)" />
+    <x:Property Name="in_VendorGroupFile" Type="InArgument(x:String)" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1240,5098</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>AllocatedVendor_Report_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>UiPath.Excel.Activities</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>UiPath.DataTableUtilities</x:String>
+      <x:String>UiPath.CSV</x:String>
+      <x:String>UiPath.CSV.Activities</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Drawing.Common</AssemblyReference>
+      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Net.Mail</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>Microsoft.Win32.Primitives</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>System.Private.Xml</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>System.Data.SqlClient</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Linq.Async</AssemblyReference>
+      <AssemblyReference>System.Linq.Async.Queryable</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>System.Linq.Parallel</AssemblyReference>
+      <AssemblyReference>System.Collections.Immutable</AssemblyReference>
+      <AssemblyReference>System.Linq.Queryable</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.CodeDom</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Forms</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Core</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.ViewModels</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.Watcher</AssemblyReference>
+      <AssemblyReference>System.IO.Packaging</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.AccessControl</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.DriveInfo</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="AllocatedVendor_Report" sap:VirtualizedContainerService.HintSize="572,5033" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="sd:DataTable" Name="dt_VendorPOCalculation" />
+      <Variable x:TypeArguments="sd:DataTable" Name="dt_Filtered_AllocatedVendor" />
+      <Variable x:TypeArguments="x:String" Name="Path_AllocatedVendorFile" />
+      <Variable x:TypeArguments="sd:DataTable" Name="dt_VendorPOCalculationNew" />
+      <Variable x:TypeArguments="x:Int32" Name="index" />
+      <Variable x:TypeArguments="sd:DataTable" Name="dt_VendorGroupFile" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="510,141" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;PO Creation Workflow Started&quot;]" />
+    <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each-Deleting PO files" sap:VirtualizedContainerService.HintSize="510,52" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[Directory.GetFiles(in_VendorPOFilePath)]">
+      <ui:ForEach.Body>
+        <ActivityAction x:TypeArguments="x:String">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:String" Name="currentItem" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="376,168" sap2010:WorkflowViewState.IdRef="Sequence_18">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:DeleteFileX DisplayName="Delete File" sap:VirtualizedContainerService.HintSize="334,80" sap2010:WorkflowViewState.IdRef="DeleteFileX_1" Path="[currentItem]" />
+          </Sequence>
+        </ActivityAction>
+      </ui:ForEach.Body>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:ForEach>
+    <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each-Deleting PO files" sap:VirtualizedContainerService.HintSize="510,52" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[Directory.GetFiles( in_TempFolder)]">
+      <ui:ForEach.Body>
+        <ActivityAction x:TypeArguments="x:String">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:String" Name="currentItem" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="376,168" sap2010:WorkflowViewState.IdRef="Sequence_19">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:DeleteFileX DisplayName="Delete File" sap:VirtualizedContainerService.HintSize="334,80" sap2010:WorkflowViewState.IdRef="DeleteFileX_2" Path="[currentItem]" />
+          </Sequence>
+        </ActivityAction>
+      </ui:ForEach.Body>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:ForEach>
+    <ui:BuildDataTable DataTable="[dt_CompletedVendorName]" DisplayName="Build Data Table" sap:VirtualizedContainerService.HintSize="510,60" sap2010:WorkflowViewState.IdRef="BuildDataTable_4" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;Column1&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;&lt;/NewDataSet&gt;" />
+    <ui:ReadRange Range="{x:Null}" AddHeaders="True" DataTable="[dt_VendorPOCalculation]" DisplayName="Read Range Workbook" sap:VirtualizedContainerService.HintSize="510,88" sap2010:WorkflowViewState.IdRef="ReadRange_1" SheetName="[in_VendorPOCalculation_SheetName]" WorkbookPath="[in_OutputFilePath]">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:ReadRange>
+    <ui:FilterDataTable DataTable="[dt_VendorPOCalculation]" DisplayName="Filter Data Table" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="510,163" sap2010:WorkflowViewState.IdRef="FilterDataTable_1" OutputDataTable="[dt_Filtered_AllocatedVendor]" SelectColumnsMode="Keep">
+      <ui:FilterDataTable.Filters>
+        <scg:List x:TypeArguments="ui:FilterOperationArgument" Capacity="4">
+          <ui:FilterOperationArgument Column="{x:Null}" Operand="{x:Null}" BooleanOperator="And" Operator="LT" />
+        </scg:List>
+      </ui:FilterDataTable.Filters>
+      <ui:FilterDataTable.SelectColumns>
+        <scg:List x:TypeArguments="InArgument" Capacity="4">
+          <InArgument x:TypeArguments="x:Int32">[13]</InArgument>
+        </scg:List>
+      </ui:FilterDataTable.SelectColumns>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:FilterDataTable>
+    <ui:RemoveDuplicateRows DataTable="[dt_Filtered_AllocatedVendor]" DisplayName="Remove Duplicate Rows" sap:VirtualizedContainerService.HintSize="510,81" sap2010:WorkflowViewState.IdRef="RemoveDuplicateRows_2" OutputDataTable="[dt_Filtered_AllocatedVendor]">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:RemoveDuplicateRows>
+    <ui:FilterDataTable DataTable="[dt_Filtered_AllocatedVendor]" DisplayName="Filter Final to remove blank row" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="510,163" sap2010:WorkflowViewState.IdRef="FilterDataTable_2" OutputDataTable="[dt_Filtered_AllocatedVendor]" SelectColumnsMode="Keep">
+      <ui:FilterDataTable.Filters>
+        <scg:List x:TypeArguments="ui:FilterOperationArgument" Capacity="4">
+          <ui:FilterOperationArgument Operand="{x:Null}" BooleanOperator="And" Operator="NOTEMPTY">
+            <ui:FilterOperationArgument.Column>
+              <InArgument x:TypeArguments="x:Int32">[0]</InArgument>
+            </ui:FilterOperationArgument.Column>
+          </ui:FilterOperationArgument>
+        </scg:List>
+      </ui:FilterDataTable.Filters>
+      <ui:FilterDataTable.SelectColumns>
+        <scg:List x:TypeArguments="InArgument" Capacity="4">
+          <x:Null />
+        </scg:List>
+      </ui:FilterDataTable.SelectColumns>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:FilterDataTable>
+    <ui:ReadRange Range="{x:Null}" AddHeaders="True" DataTable="[dt_VendorGroupFile]" DisplayName="Read Range Workbook" sap:VirtualizedContainerService.HintSize="510,88" sap2010:WorkflowViewState.IdRef="ReadRange_2" SheetName="Sheet1" WorkbookPath="[in_VendorGroupFile]" />
+    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[dt_Filtered_AllocatedVendor]" DisplayName="For Each Row - Vendor PO" sap:VirtualizedContainerService.HintSize="510,3242" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+      <ui:ForEachRow.Body>
+        <ActivityAction x:TypeArguments="sd:DataRow">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="476,3054" sap2010:WorkflowViewState.IdRef="Sequence_4">
+            <Sequence.Variables>
+              <Variable x:TypeArguments="sd:DataTable" Name="dt_Filter_SingleVendor" />
+              <Variable x:TypeArguments="sd:DataTable" Name="dt_Filter_SingleVendor_New" />
+              <Variable x:TypeArguments="x:String" Name="POcode" />
+              <Variable x:TypeArguments="sd:DataTable" Name="dt_VendorGroupFile_Filter" />
+              <Variable x:TypeArguments="x:Boolean" Name="isErrorImportExist" />
+              <Variable x:TypeArguments="x:Boolean" Name="isCSVimportFailed" />
+            </Sequence.Variables>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:FilterDataTable DataTable="[dt_VendorPOCalculation]" DisplayName="Filter Data Table" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="434,163" sap2010:WorkflowViewState.IdRef="FilterDataTable_3" OutputDataTable="[dt_Filter_SingleVendor]" SelectColumnsMode="Keep">
+              <ui:FilterDataTable.Filters>
+                <scg:List x:TypeArguments="ui:FilterOperationArgument" Capacity="4">
+                  <ui:FilterOperationArgument BooleanOperator="And" Operator="CONTAINS">
+                    <ui:FilterOperationArgument.Column>
+                      <InArgument x:TypeArguments="x:Int32">[13]</InArgument>
+                    </ui:FilterOperationArgument.Column>
+                    <ui:FilterOperationArgument.Operand>
+                      <InArgument x:TypeArguments="x:String">[CurrentRow(0).ToString.trim]</InArgument>
+                    </ui:FilterOperationArgument.Operand>
+                  </ui:FilterOperationArgument>
+                </scg:List>
+              </ui:FilterDataTable.Filters>
+              <ui:FilterDataTable.SelectColumns>
+                <scg:List x:TypeArguments="InArgument" Capacity="4">
+                  <InArgument x:TypeArguments="x:Int32">[0]</InArgument>
+                  <InArgument x:TypeArguments="x:Int32">[14]</InArgument>
+                </scg:List>
+              </ui:FilterDataTable.SelectColumns>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:FilterDataTable>
+            <ui:FilterDataTable DataTable="[dt_Filter_SingleVendor]" DisplayName="Filter Data Table" FilterRowsMode="Remove" sap:VirtualizedContainerService.HintSize="434,163" sap2010:WorkflowViewState.IdRef="FilterDataTable_4" OutputDataTable="[dt_Filter_SingleVendor]" SelectColumnsMode="Keep">
+              <ui:FilterDataTable.Filters>
+                <scg:List x:TypeArguments="ui:FilterOperationArgument" Capacity="4">
+                  <ui:FilterOperationArgument BooleanOperator="And" Operator="CONTAINS">
+                    <ui:FilterOperationArgument.Column>
+                      <InArgument x:TypeArguments="x:Int32">[1]</InArgument>
+                    </ui:FilterOperationArgument.Column>
+                    <ui:FilterOperationArgument.Operand>
+                      <InArgument x:TypeArguments="x:String">["0"]</InArgument>
+                    </ui:FilterOperationArgument.Operand>
+                  </ui:FilterOperationArgument>
+                </scg:List>
+              </ui:FilterDataTable.Filters>
+              <ui:FilterDataTable.SelectColumns>
+                <scg:List x:TypeArguments="InArgument" Capacity="4">
+                  <x:Null />
+                </scg:List>
+              </ui:FilterDataTable.SelectColumns>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:FilterDataTable>
+            <ui:BuildDataTable sap2010:Annotation.AnnotationText="Did this to change the column names :Trim SKU code and Qty" DataTable="[dt_Filter_SingleVendor_New]" DisplayName="Build New Dt for Vendor Sheet" sap:VirtualizedContainerService.HintSize="434,113" sap2010:WorkflowViewState.IdRef="BuildDataTable_1" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;Item_x0020_SKU_x0020_Code&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Qty&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;&lt;/NewDataSet&gt;">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:BuildDataTable>
+            <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[dt_Filter_SingleVendor]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="434,53" sap2010:WorkflowViewState.IdRef="ForEachRow_2">
+              <ui:ForEachRow.Body>
+                <ActivityAction x:TypeArguments="sd:DataRow">
+                  <ActivityAction.Argument>
+                    <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
+                  </ActivityAction.Argument>
+                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="376,274" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{CurrentRow(0).tostring,CurrentRow(1).tostring}]" DataTable="[dt_Filter_SingleVendor_New]" DisplayName="Add Data Row in DtVendor" sap:VirtualizedContainerService.HintSize="334,186" sap2010:WorkflowViewState.IdRef="AddDataRow_1">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </ui:AddDataRow>
+                  </Sequence>
+                </ActivityAction>
+              </ui:ForEachRow.Body>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:ForEachRow>
+            <ui:WriteCsvFile AddHeaders="True" DataTable="[dt_Filter_SingleVendor_New]" Delimitator="Comma" DisplayName="Write CSV" FilePath="[in_TempFolder + CurrentRow(0).ToString+&quot;-&quot;+now.ToString(&quot;ddMMyyyy&quot;)+&quot;.csv&quot;]" sap:VirtualizedContainerService.HintSize="434,156" sap2010:WorkflowViewState.IdRef="WriteCsvFile_1" ShouldQuote="True">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:WriteCsvFile>
+            <Assign sap:VirtualizedContainerService.HintSize="434,83" sap2010:WorkflowViewState.IdRef="Assign_2">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:String">[POcode]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:String">[CurrentRow(0).ToString]</InArgument>
+              </Assign.Value>
+            </Assign>
+            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Uniware_Login.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="434,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_8" UnSafe="False" WorkflowFileName="Uniware_Login.xaml">
+              <ui:InvokeWorkflowFile.Arguments>
+                <InArgument x:TypeArguments="x:String" x:Key="in_UnicommerceURL">[Config("UniwareLoginURL").ToString]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_UnicommerceLoginID">[Config("UniwareLoginID").ToString]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_UnicommerceLoginPassword">[Config("UniwareLoginPassword").ToString]</InArgument>
+              </ui:InvokeWorkflowFile.Arguments>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:InvokeWorkflowFile>
+            <Delay Duration="00:00:04" sap:VirtualizedContainerService.HintSize="434,91" sap2010:WorkflowViewState.IdRef="Delay_4" />
+            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Uniware_NavigateToPurchaseOrder.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="434,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Uniware_NavigateToPurchaseOrder.xaml">
+              <ui:InvokeWorkflowFile.Arguments>
+                <InArgument x:TypeArguments="x:String" x:Key="BreakTriggerScopeInArgument" />
+              </ui:InvokeWorkflowFile.Arguments>
+            </ui:InvokeWorkflowFile>
+            <ui:FilterDataTable DataTable="[dt_VendorGroupFile]" DisplayName="Filter Data Table" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="434,163" sap2010:WorkflowViewState.IdRef="FilterDataTable_5" OutputDataTable="[dt_VendorGroupFile_Filter]" SelectColumnsMode="Remove">
+              <ui:FilterDataTable.Filters>
+                <scg:List x:TypeArguments="ui:FilterOperationArgument" Capacity="4">
+                  <ui:FilterOperationArgument BooleanOperator="And" Operator="CONTAINS">
+                    <ui:FilterOperationArgument.Column>
+                      <InArgument x:TypeArguments="x:Int32">[0]</InArgument>
+                    </ui:FilterOperationArgument.Column>
+                    <ui:FilterOperationArgument.Operand>
+                      <InArgument x:TypeArguments="x:String">[POcode]</InArgument>
+                    </ui:FilterOperationArgument.Operand>
+                  </ui:FilterOperationArgument>
+                </scg:List>
+              </ui:FilterDataTable.Filters>
+              <ui:FilterDataTable.SelectColumns>
+                <scg:List x:TypeArguments="InArgument" Capacity="4">
+                  <x:Null />
+                </scg:List>
+              </ui:FilterDataTable.SelectColumns>
+            </ui:FilterDataTable>
+            <Assign DisplayName="Stores path of Single Specific Vendor File" sap:VirtualizedContainerService.HintSize="434,83" sap2010:WorkflowViewState.IdRef="Assign_7">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:String">[Path_AllocatedVendorFile]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:String">[in_TempFolder + CurrentRow(0).ToString+"-"+now.ToString("ddMMyyyy")+".csv"]</InArgument>
+              </Assign.Value>
+            </Assign>
+            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Uniware_CreatePurchaseOrderReport.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="434,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="Uniware_CreatePurchaseOrderReport.xaml">
+              <ui:InvokeWorkflowFile.Arguments>
+                <InArgument x:TypeArguments="x:String" x:Key="in_POcode">[POcode]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_VendorFilePath">[Path_AllocatedVendorFile]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_VendorName">[dt_VendorGroupFile_Filter(0)(2).tostring]</InArgument>
+                <OutArgument x:TypeArguments="x:Boolean" x:Key="out_isErrorImportExist">[isErrorImportExist]</OutArgument>
+                <OutArgument x:TypeArguments="x:Boolean" x:Key="out_isCSVimportFailed">[isCSVimportFailed]</OutArgument>
+              </ui:InvokeWorkflowFile.Arguments>
+            </ui:InvokeWorkflowFile>
+            <If Condition="[isErrorImportExist or isCSVimportFailed]" sap:VirtualizedContainerService.HintSize="434,471" sap2010:WorkflowViewState.IdRef="If_3">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <If.Then>
+                <Sequence sap:VirtualizedContainerService.HintSize="376,288" sap2010:WorkflowViewState.IdRef="Sequence_20">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:KillProcess AppliesTo="{x:Null}" ContinueOnError="{x:Null}" Process="{x:Null}" DisplayName="Kill Process" sap:VirtualizedContainerService.HintSize="334,135" sap2010:WorkflowViewState.IdRef="KillProcess_2" ProcessName="Chrome" />
+                  <ui:Continue sap:VirtualizedContainerService.HintSize="334,25" sap2010:WorkflowViewState.IdRef="Continue_1" />
+                </Sequence>
+              </If.Then>
+              <If.Else>
+                <Sequence sap:VirtualizedContainerService.HintSize="300,80" sap2010:WorkflowViewState.IdRef="Sequence_21">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </Sequence>
+              </If.Else>
+            </If>
+            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Uniware_SavePO_Reciept.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="434,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="Uniware_SavePO_Reciept.xaml">
+              <ui:InvokeWorkflowFile.Arguments>
+                <InArgument x:TypeArguments="x:String" x:Key="in_VendorFilePath">[in_PO_RecieptPath+POcode+"-PO-"+ now.ToString("ddMMyyyy")+".pdf"]</InArgument>
+                <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="Config">[Config]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_POcode">[POcode]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_Path_AllocatedVendorFile">[Path_AllocatedVendorFile]</InArgument>
+              </ui:InvokeWorkflowFile.Arguments>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:InvokeWorkflowFile>
+            <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{ CurrentRow(0).ToString}]" DataTable="[dt_CompletedVendorName]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="434,53" sap2010:WorkflowViewState.IdRef="AddDataRow_2">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:AddDataRow>
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,143" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[CurrentRow(0).ToString +&quot; - PO is raised&quot;]" />
+            <ui:KillProcess AppliesTo="{x:Null}" ContinueOnError="{x:Null}" Process="{x:Null}" DisplayName="Kill Process" sap:VirtualizedContainerService.HintSize="434,135" sap2010:WorkflowViewState.IdRef="KillProcess_1" ProcessName="Chrome" />
+          </Sequence>
+        </ActivityAction>
+      </ui:ForEachRow.Body>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:ForEachRow>
+    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[dt_CompletedVendorName]" DisplayName="For Each Row - Status Raised" sap:VirtualizedContainerService.HintSize="510,53" sap2010:WorkflowViewState.IdRef="ForEachRow_3">
+      <ui:ForEachRow.Body>
+        <ActivityAction x:TypeArguments="sd:DataRow">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="628,1030" sap2010:WorkflowViewState.IdRef="Sequence_9">
+            <Sequence.Variables>
+              <Variable x:TypeArguments="x:String" Name="VendorName" />
+            </Sequence.Variables>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <Assign sap:VirtualizedContainerService.HintSize="586,82" sap2010:WorkflowViewState.IdRef="Assign_4">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:Int32">[index]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:Int32">0</InArgument>
+              </Assign.Value>
+            </Assign>
+            <Assign sap:VirtualizedContainerService.HintSize="586,82" sap2010:WorkflowViewState.IdRef="Assign_3">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:String">[VendorName]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:String">[CurrentRow(0).ToString]</InArgument>
+              </Assign.Value>
+            </Assign>
+            <ui:InterruptibleWhile CurrentIndex="{x:Null}" Condition="[index&lt; dt_VendorPOCalculation.RowCount - 1]" DisplayName="While" sap:VirtualizedContainerService.HintSize="586,698" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_1">
+              <ui:InterruptibleWhile.Body>
+                <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="552,562" sap2010:WorkflowViewState.IdRef="Sequence_14">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <If Condition="[dt_VendorPOCalculation( index)(13).tostring.Contains( VendorName) and string.IsNullOrEmpty(dt_VendorPOCalculation( index)(15).tostring)]" sap:VirtualizedContainerService.HintSize="510,352" sap2010:WorkflowViewState.IdRef="If_2">
+                    <If.Then>
+                      <Sequence sap:VirtualizedContainerService.HintSize="476,170" sap2010:WorkflowViewState.IdRef="Sequence_16">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_5">
+                          <Assign.To>
+                            <OutArgument x:TypeArguments="x:Object">[dt_VendorPOCalculation( index)(15)]</OutArgument>
+                          </Assign.To>
+                          <Assign.Value>
+                            <InArgument x:TypeArguments="x:Object">["Raised"]</InArgument>
+                          </Assign.Value>
+                        </Assign>
+                      </Sequence>
+                    </If.Then>
+                    <If.Else>
+                      <Sequence sap2010:WorkflowViewState.IdRef="Sequence_17" />
+                    </If.Else>
+                  </If>
+                  <Assign sap:VirtualizedContainerService.HintSize="510,82" sap2010:WorkflowViewState.IdRef="Assign_6">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:Int32">[index]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:Int32">[index + 1]</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                </Sequence>
+              </ui:InterruptibleWhile.Body>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:InterruptibleWhile>
+          </Sequence>
+        </ActivityAction>
+      </ui:ForEachRow.Body>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:ForEachRow>
+    <ui:WriteRange StartingCell="{x:Null}" AddHeaders="True" DataTable="[dt_VendorPOCalculation]" DisplayName="Write Status as Raised" sap:VirtualizedContainerService.HintSize="510,116" sap2010:WorkflowViewState.IdRef="WriteRange_2" SheetName="[in_VendorPOCalculation_SheetName]" WorkbookPath="[in_OutputFilePath]" />
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="510,143" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;PO Creation Workflow Started&quot;]" />
+  </Sequence>
+</Activity>

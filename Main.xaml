@@ -1,0 +1,1256 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_Pivot2RowCount" Type="InArgument(x:Int32)" />
+    <x:Property Name="in_Pivot3RowCount" Type="InArgument(x:Int32)" />
+    <x:Property Name="in_Pivot4RowCount" Type="InArgument(x:Int32)" />
+    <x:Property Name="in_Pivot5RowCount" Type="InArgument(x:Int32)" />
+    <x:Property Name="in_PathPOpivot_VendorEDDcrossedPendingQTY" Type="InArgument(x:String)" />
+    <x:Property Name="in_PathPOpivot_VendorWiseMoreThan5DaysPendingQTY" Type="InArgument(x:String)" />
+    <x:Property Name="in_PathPOpivot_VendorWiseEDDcrossedPendingQTY" Type="InArgument(x:String)" />
+    <x:Property Name="in_PathPOpivot_VendorWiseAllPendingQTY" Type="InArgument(x:String)" />
+    <x:Property Name="in_PathUnfulpivot_SumOf1XRealtime" Type="InArgument(x:String)" />
+    <x:Property Name="in_PathUnfulpivot_OrdersDelayTrackerReport" Type="InArgument(x:String)" />
+    <x:Property Name="in_Pivot6RowCount" Type="InArgument(x:Int32)" />
+    <x:Property Name="in_PathPOpivot_AllPendingQTYData" Type="InArgument(x:String)" />
+    <x:Property Name="BreakTriggerScopeInArgument" Type="InArgument(x:String)" />
+    <x:Property Name="in_PathUnfulpivot_OrderFulfillmentDelayDays" Type="InArgument(x:String)" />
+    <x:Property Name="in_PathTodayPORaisedQtyVendorWise" Type="InArgument(x:String)" />
+    <x:Property Name="in_PathPOCalculationSummaryReportwithDataFields" Type="InArgument(x:String)" />
+    <x:Property Name="in_Pivot1RowCount" Type="InArgument(x:Int32)" />
+    <x:Property Name="in_dt_PivotPORaisedQtyReport" Type="InArgument(sd:DataTable)" />
+    <x:Property Name="argument1" Type="InArgument(x:String)" />
+  </x:Members>
+  <this:Main.in_Pivot2RowCount>
+    <InArgument x:TypeArguments="x:Int32" />
+  </this:Main.in_Pivot2RowCount>
+  <this:Main.in_Pivot3RowCount>
+    <InArgument x:TypeArguments="x:Int32" />
+  </this:Main.in_Pivot3RowCount>
+  <this:Main.in_Pivot4RowCount>
+    <InArgument x:TypeArguments="x:Int32" />
+  </this:Main.in_Pivot4RowCount>
+  <this:Main.in_Pivot5RowCount>
+    <InArgument x:TypeArguments="x:Int32" />
+  </this:Main.in_Pivot5RowCount>
+  <this:Main.in_PathPOpivot_AllPendingQTYData>
+    <InArgument x:TypeArguments="x:String" />
+  </this:Main.in_PathPOpivot_AllPendingQTYData>
+  <this:Main.in_Pivot1RowCount>
+    <InArgument x:TypeArguments="x:Int32" />
+  </this:Main.in_Pivot1RowCount>
+  <this:Main.in_dt_PivotPORaisedQtyReport>
+    <InArgument x:TypeArguments="sd:DataTable" />
+  </this:Main.in_dt_PivotPORaisedQtyReport>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1240,4329</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>UiPath.Excel.Activities</x:String>
+      <x:String>UiPath.DataTableUtilities</x:String>
+      <x:String>Microsoft.VisualBasic.CompilerServices</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>UiPath.Mail</x:String>
+      <x:String>UiPath.Mail.IMAP.Activities</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.Mail.Activities</x:String>
+      <x:String>UiPath.Excel.Activities.Business.Filter</x:String>
+      <x:String>UiPath.Excel.Activities.Business</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Drawing.Common</AssemblyReference>
+      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Net.Mail</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>System.CodeDom</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Forms</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Core</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>Microsoft.Win32.Primitives</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.ViewModels</AssemblyReference>
+      <AssemblyReference>System.Linq.Async</AssemblyReference>
+      <AssemblyReference>System.Private.Xml</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>System.Data.SqlClient</AssemblyReference>
+      <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>UiPath.GSuite.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPathTeam.Excel.Extensions.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Web.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities.Design</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <sap:WorkflowViewStateService.ViewState>
+    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+      <x:Boolean x:Key="ShouldCollapseAll">False</x:Boolean>
+      <x:Boolean x:Key="ShouldExpandAll">False</x:Boolean>
+    </scg:Dictionary>
+  </sap:WorkflowViewStateService.ViewState>
+  <Sequence DisplayName="Main Sequence" sap:VirtualizedContainerService.HintSize="558,4264" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="scg:Dictionary(x:String, x:Object)" Name="Config" />
+      <Variable x:TypeArguments="x:String" Name="Uniware_PurchaseOrder_InputFile" />
+      <Variable x:TypeArguments="x:String" Name="CsvDownloadLink" />
+      <Variable x:TypeArguments="x:String" Name="Clickpost_InputFile" />
+      <Variable x:TypeArguments="x:String" Name="StartDate" />
+      <Variable x:TypeArguments="x:String" Name="EndDate" />
+      <Variable x:TypeArguments="x:String" Name="OutputFile" />
+      <Variable x:TypeArguments="x:String" Name="Uniware_OrderItem_InputFile" />
+      <Variable x:TypeArguments="x:String" Name="Uniware_EnableProduct_InputFile" />
+      <Variable x:TypeArguments="x:String" Name="VendorPOReceiptPath" />
+      <Variable x:TypeArguments="x:String" Name="PivotScreenshotsPath" />
+      <Variable x:TypeArguments="sd:DataTable" Name="dt_CompletedVendorName" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="InitAllSettings.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="496,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="InitAllSettings.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="x:String" x:Key="in_ConfigFile">Data\Config.xlsx</InArgument>
+        <InArgument x:TypeArguments="s:String[]" x:Key="in_ConfigSheets">[{"Settings","Constants"}]</InArgument>
+        <OutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="out_Config">[Config]</OutArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <Sequence DisplayName="Uniware" sap:VirtualizedContainerService.HintSize="496,83" sap2010:WorkflowViewState.IdRef="Sequence_66">
+      <Sequence.Variables>
+        <Variable x:TypeArguments="x:String" Name="endDay" />
+        <Variable x:TypeArguments="x:String" Name="startMonth" />
+        <Variable x:TypeArguments="x:String" Name="startDay" />
+        <Variable x:TypeArguments="x:String" Name="startYear" />
+        <Variable x:TypeArguments="x:String" Name="endYear" />
+        <Variable x:TypeArguments="x:String" Name="endMonth" />
+        <Variable x:TypeArguments="x:String" Name="currentDate" />
+        <Variable x:TypeArguments="x:String" Name="beforeDate" />
+      </Sequence.Variables>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <ui:KillProcess AppliesTo="{x:Null}" ContinueOnError="{x:Null}" Process="{x:Null}" DisplayName="Kill Chrome" sap:VirtualizedContainerService.HintSize="450,53" sap2010:WorkflowViewState.IdRef="KillProcess_1" ProcessName="Chrome">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </ui:KillProcess>
+      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Uniware_Login.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="450,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_16" UnSafe="False" WorkflowFileName="Uniware_Login.xaml">
+        <ui:InvokeWorkflowFile.Arguments>
+          <InArgument x:TypeArguments="x:String" x:Key="in_UnicommerceURL">[Config("UniwareLoginURL").ToString]</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="in_UnicommerceLoginID">[Config("UniwareLoginID").ToString]</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="in_UnicommerceLoginPassword">[Config("UniwareLoginPassword").ToString]</InArgument>
+        </ui:InvokeWorkflowFile.Arguments>
+      </ui:InvokeWorkflowFile>
+      <Sequence DisplayName="PO_ExportReport" sap:VirtualizedContainerService.HintSize="450,83" sap2010:WorkflowViewState.IdRef="Sequence_64">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Unicommerce_NavigateToOtherReport.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="433.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_17" UnSafe="False" WorkflowFileName="Uniware_NavigateToOtherReport.xaml">
+          <ui:InvokeWorkflowFile.Arguments>
+            <InArgument x:TypeArguments="x:String" x:Key="BreakTriggerScopeInArgument" />
+          </ui:InvokeWorkflowFile.Arguments>
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </ui:InvokeWorkflowFile>
+        <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Unicommerce_ExportConfigPage.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="433.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_18" UnSafe="False" WorkflowFileName="Uniware_ExportConfigPage.xaml">
+          <ui:InvokeWorkflowFile.Arguments>
+            <InArgument x:TypeArguments="x:String" x:Key="in_ExportTypeName">Purchase Orders Export</InArgument>
+            <InArgument x:TypeArguments="x:String" x:Key="in_PurchaseOrderStatus1">[Config("PurchaseOrderStatus1").tostring.trim]</InArgument>
+            <InArgument x:TypeArguments="x:String" x:Key="in_PurchaseOrderStatus2">[Config("PurchaseOrderStatus2").tostring.trim]</InArgument>
+            <InArgument x:TypeArguments="x:String" x:Key="in_PurchaseOrderStatus3">[Config("PurchaseOrderStatus3").tostring.trim]</InArgument>
+          </ui:InvokeWorkflowFile.Arguments>
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </ui:InvokeWorkflowFile>
+        <If Condition="[Config(&quot;isCustomDateUniware&quot;).ToString.ToUpper.Contains(&quot;TRUE&quot;)]" sap:VirtualizedContainerService.HintSize="433.6,52.8" sap2010:WorkflowViewState.IdRef="If_1">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <If.Then>
+            <Sequence sap:VirtualizedContainerService.HintSize="521.6,362.4" sap2010:WorkflowViewState.IdRef="Sequence_5">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="478.4,272.8" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+                <ui:MultipleAssign.AssignOperations>
+                  <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
+                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
+                      <ui:AssignOperation.To>
+                        <OutArgument x:TypeArguments="x:String">[startDay]</OutArgument>
+                      </ui:AssignOperation.To>
+                      <ui:AssignOperation.Value>
+                        <InArgument x:TypeArguments="x:String">[split(Config("Uniware_startDate").ToString,"-")(0).Trim]</InArgument>
+                      </ui:AssignOperation.Value>
+                    </ui:AssignOperation>
+                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
+                      <ui:AssignOperation.To>
+                        <OutArgument x:TypeArguments="x:String">[startYear]</OutArgument>
+                      </ui:AssignOperation.To>
+                      <ui:AssignOperation.Value>
+                        <InArgument x:TypeArguments="x:String">[split(Config("Uniware_startDate").ToString,"-")(2).Trim]</InArgument>
+                      </ui:AssignOperation.Value>
+                    </ui:AssignOperation>
+                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
+                      <ui:AssignOperation.To>
+                        <OutArgument x:TypeArguments="x:String">[startMonth]</OutArgument>
+                      </ui:AssignOperation.To>
+                      <ui:AssignOperation.Value>
+                        <InArgument x:TypeArguments="x:String">[split(split(Config("Uniware_startDate").ToString,"-")(1).Trim,"-")(0)]</InArgument>
+                      </ui:AssignOperation.Value>
+                    </ui:AssignOperation>
+                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_4">
+                      <ui:AssignOperation.To>
+                        <OutArgument x:TypeArguments="x:String">[endDay]</OutArgument>
+                      </ui:AssignOperation.To>
+                      <ui:AssignOperation.Value>
+                        <InArgument x:TypeArguments="x:String">[split(Config("Uniware_endDate").ToString,"-")(0).Trim]</InArgument>
+                      </ui:AssignOperation.Value>
+                    </ui:AssignOperation>
+                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_5">
+                      <ui:AssignOperation.To>
+                        <OutArgument x:TypeArguments="x:String">[endYear]</OutArgument>
+                      </ui:AssignOperation.To>
+                      <ui:AssignOperation.Value>
+                        <InArgument x:TypeArguments="x:String">[split(Config("Uniware_endDate").ToString,"-")(2).Trim]</InArgument>
+                      </ui:AssignOperation.Value>
+                    </ui:AssignOperation>
+                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_6">
+                      <ui:AssignOperation.To>
+                        <OutArgument x:TypeArguments="x:String">[endMonth]</OutArgument>
+                      </ui:AssignOperation.To>
+                      <ui:AssignOperation.Value>
+                        <InArgument x:TypeArguments="x:String">[split(split(Config("Uniware_endDate").ToString,"-")(1).Trim,"-")(0)]</InArgument>
+                      </ui:AssignOperation.Value>
+                    </ui:AssignOperation>
+                  </scg:List>
+                </ui:MultipleAssign.AssignOperations>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </ui:MultipleAssign>
+            </Sequence>
+          </If.Then>
+          <If.Else>
+            <Sequence sap:VirtualizedContainerService.HintSize="521.6,330.4" sap2010:WorkflowViewState.IdRef="Sequence_6">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="478.4,148" sap2010:WorkflowViewState.IdRef="MultipleAssign_3">
+                <ui:MultipleAssign.AssignOperations>
+                  <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_13">
+                      <ui:AssignOperation.To>
+                        <OutArgument x:TypeArguments="x:String">[currentDate]</OutArgument>
+                      </ui:AssignOperation.To>
+                      <ui:AssignOperation.Value>
+                        <InArgument x:TypeArguments="x:String">[DateTime.Now.ToString("d-MMM-yyyy")]</InArgument>
+                      </ui:AssignOperation.Value>
+                    </ui:AssignOperation>
+                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_14">
+                      <ui:AssignOperation.To>
+                        <OutArgument x:TypeArguments="x:String">[beforeDate]</OutArgument>
+                      </ui:AssignOperation.To>
+                      <ui:AssignOperation.Value>
+                        <InArgument x:TypeArguments="x:String">[DateTime.Now.AddDays(-90).ToString("d-MMM-yyyy")]</InArgument>
+                      </ui:AssignOperation.Value>
+                    </ui:AssignOperation>
+                  </scg:List>
+                </ui:MultipleAssign.AssignOperations>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </ui:MultipleAssign>
+              <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="478.4,52.8" sap2010:WorkflowViewState.IdRef="MultipleAssign_4">
+                <ui:MultipleAssign.AssignOperations>
+                  <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
+                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_15">
+                      <ui:AssignOperation.To>
+                        <OutArgument x:TypeArguments="x:String">[startDay]</OutArgument>
+                      </ui:AssignOperation.To>
+                      <ui:AssignOperation.Value>
+                        <InArgument x:TypeArguments="x:String">[split( beforeDate,"-")(0).Trim]</InArgument>
+                      </ui:AssignOperation.Value>
+                    </ui:AssignOperation>
+                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_16">
+                      <ui:AssignOperation.To>
+                        <OutArgument x:TypeArguments="x:String">[startYear]</OutArgument>
+                      </ui:AssignOperation.To>
+                      <ui:AssignOperation.Value>
+                        <InArgument x:TypeArguments="x:String">[split( beforeDate,"-")(2).Trim]</InArgument>
+                      </ui:AssignOperation.Value>
+                    </ui:AssignOperation>
+                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_17">
+                      <ui:AssignOperation.To>
+                        <OutArgument x:TypeArguments="x:String">[startMonth]</OutArgument>
+                      </ui:AssignOperation.To>
+                      <ui:AssignOperation.Value>
+                        <InArgument x:TypeArguments="x:String">[split(split(beforeDate,"-")(1).Trim,"-")(0)]</InArgument>
+                      </ui:AssignOperation.Value>
+                    </ui:AssignOperation>
+                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_18">
+                      <ui:AssignOperation.To>
+                        <OutArgument x:TypeArguments="x:String">[endDay]</OutArgument>
+                      </ui:AssignOperation.To>
+                      <ui:AssignOperation.Value>
+                        <InArgument x:TypeArguments="x:String">[split( currentDate,"-")(0).Trim]</InArgument>
+                      </ui:AssignOperation.Value>
+                    </ui:AssignOperation>
+                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_19">
+                      <ui:AssignOperation.To>
+                        <OutArgument x:TypeArguments="x:String">[endYear]</OutArgument>
+                      </ui:AssignOperation.To>
+                      <ui:AssignOperation.Value>
+                        <InArgument x:TypeArguments="x:String">[split( currentDate,"-")(2).Trim]</InArgument>
+                      </ui:AssignOperation.Value>
+                    </ui:AssignOperation>
+                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_20">
+                      <ui:AssignOperation.To>
+                        <OutArgument x:TypeArguments="x:String">[endMonth]</OutArgument>
+                      </ui:AssignOperation.To>
+                      <ui:AssignOperation.Value>
+                        <InArgument x:TypeArguments="x:String">[split(split(currentDate,"-")(1).Trim,"-")(0)]</InArgument>
+                      </ui:AssignOperation.Value>
+                    </ui:AssignOperation>
+                  </scg:List>
+                </ui:MultipleAssign.AssignOperations>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </ui:MultipleAssign>
+            </Sequence>
+          </If.Else>
+        </If>
+        <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="ExportConfig_SelectDateRange.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="433.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_21" UnSafe="False" WorkflowFileName="Uniware_ExportConfig_SelectDateRange.xaml">
+          <ui:InvokeWorkflowFile.Arguments>
+            <InArgument x:TypeArguments="x:String" x:Key="in_StartYear">[startYear]</InArgument>
+            <InArgument x:TypeArguments="x:String" x:Key="in_StartMonth">[startMonth]</InArgument>
+            <InArgument x:TypeArguments="x:String" x:Key="in_EndYear">[endYear]</InArgument>
+            <InArgument x:TypeArguments="x:String" x:Key="in_EndMonth">[endMonth]</InArgument>
+            <InArgument x:TypeArguments="x:String" x:Key="in_EndDate">[endDay]</InArgument>
+            <InArgument x:TypeArguments="x:String" x:Key="in_StartDay">[startDay]</InArgument>
+          </ui:InvokeWorkflowFile.Arguments>
+        </ui:InvokeWorkflowFile>
+        <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="ExportPurchaseOrderReport.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="433.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_10" UnSafe="False" WorkflowFileName="Uniware_ExportPurchaseOrderReport.xaml">
+          <ui:InvokeWorkflowFile.Arguments>
+            <scg:Dictionary x:TypeArguments="x:String, Argument" />
+          </ui:InvokeWorkflowFile.Arguments>
+        </ui:InvokeWorkflowFile>
+        <Assign sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_2">
+          <Assign.To>
+            <OutArgument x:TypeArguments="x:String">[Uniware_PurchaseOrder_InputFile]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="x:String">[Config("InputFilePath").ToString+"Uniware_PurchaseOrder_InputFile_"+now.tostring("ddMMyyyyhhmmss")+".csv"]</InArgument>
+          </Assign.Value>
+        </Assign>
+        <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="SavePO_ExportFile.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="433.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_11" UnSafe="False" WorkflowFileName="Uniware_SavePO_ExportFile.xaml">
+          <ui:InvokeWorkflowFile.Arguments>
+            <InArgument x:TypeArguments="x:String" x:Key="in_PO_ExportFilePath">[Uniware_PurchaseOrder_InputFile]</InArgument>
+          </ui:InvokeWorkflowFile.Arguments>
+        </ui:InvokeWorkflowFile>
+      </Sequence>
+      <Sequence DisplayName="OrderItems Report Sequence" sap:VirtualizedContainerService.HintSize="450,83" sap2010:WorkflowViewState.IdRef="Sequence_26">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Unicommerce_NavigateToOrderItemReport.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="434,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_12" UnSafe="False" WorkflowFileName="Uniware_NavigateToOrderItemReport.xaml">
+          <ui:InvokeWorkflowFile.Arguments>
+            <scg:Dictionary x:TypeArguments="x:String, Argument" />
+          </ui:InvokeWorkflowFile.Arguments>
+        </ui:InvokeWorkflowFile>
+        <If Condition="[Config(&quot;isCustomDateUniware&quot;).ToString.ToUpper.Contains(&quot;TRUE&quot;)]" sap:VirtualizedContainerService.HintSize="434,53" sap2010:WorkflowViewState.IdRef="If_2">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <If.Then>
+            <Sequence sap:VirtualizedContainerService.HintSize="521,359" sap2010:WorkflowViewState.IdRef="Sequence_10">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="479,271" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
+                <ui:MultipleAssign.AssignOperations>
+                  <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
+                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_7">
+                      <ui:AssignOperation.To>
+                        <OutArgument x:TypeArguments="x:String">[startDay]</OutArgument>
+                      </ui:AssignOperation.To>
+                      <ui:AssignOperation.Value>
+                        <InArgument x:TypeArguments="x:String">[split(Config("Uniware_startDate").ToString,"-")(0).Trim]</InArgument>
+                      </ui:AssignOperation.Value>
+                    </ui:AssignOperation>
+                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_8">
+                      <ui:AssignOperation.To>
+                        <OutArgument x:TypeArguments="x:String">[startYear]</OutArgument>
+                      </ui:AssignOperation.To>
+                      <ui:AssignOperation.Value>
+                        <InArgument x:TypeArguments="x:String">[split(Config("Uniware_startDate").ToString,"-")(2).Trim]</InArgument>
+                      </ui:AssignOperation.Value>
+                    </ui:AssignOperation>
+                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_9">
+                      <ui:AssignOperation.To>
+                        <OutArgument x:TypeArguments="x:String">[startMonth]</OutArgument>
+                      </ui:AssignOperation.To>
+                      <ui:AssignOperation.Value>
+                        <InArgument x:TypeArguments="x:String">[split(split(Config("Uniware_startDate").ToString,"-")(1).Trim,"-")(0)]</InArgument>
+                      </ui:AssignOperation.Value>
+                    </ui:AssignOperation>
+                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_10">
+                      <ui:AssignOperation.To>
+                        <OutArgument x:TypeArguments="x:String">[endDay]</OutArgument>
+                      </ui:AssignOperation.To>
+                      <ui:AssignOperation.Value>
+                        <InArgument x:TypeArguments="x:String">[split(Config("Uniware_endDate").ToString,"-")(0).Trim]</InArgument>
+                      </ui:AssignOperation.Value>
+                    </ui:AssignOperation>
+                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_11">
+                      <ui:AssignOperation.To>
+                        <OutArgument x:TypeArguments="x:String">[endYear]</OutArgument>
+                      </ui:AssignOperation.To>
+                      <ui:AssignOperation.Value>
+                        <InArgument x:TypeArguments="x:String">[split(Config("Uniware_endDate").ToString,"-")(2).Trim]</InArgument>
+                      </ui:AssignOperation.Value>
+                    </ui:AssignOperation>
+                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_12">
+                      <ui:AssignOperation.To>
+                        <OutArgument x:TypeArguments="x:String">[endMonth]</OutArgument>
+                      </ui:AssignOperation.To>
+                      <ui:AssignOperation.Value>
+                        <InArgument x:TypeArguments="x:String">[split(split(Config("Uniware_endDate").ToString,"-")(1).Trim,"-")(0)]</InArgument>
+                      </ui:AssignOperation.Value>
+                    </ui:AssignOperation>
+                  </scg:List>
+                </ui:MultipleAssign.AssignOperations>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </ui:MultipleAssign>
+            </Sequence>
+          </If.Then>
+          <If.Else>
+            <Sequence sap:VirtualizedContainerService.HintSize="521,329" sap2010:WorkflowViewState.IdRef="Sequence_11">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="479,148" sap2010:WorkflowViewState.IdRef="MultipleAssign_5">
+                <ui:MultipleAssign.AssignOperations>
+                  <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_21">
+                      <ui:AssignOperation.To>
+                        <OutArgument x:TypeArguments="x:String">[currentDate]</OutArgument>
+                      </ui:AssignOperation.To>
+                      <ui:AssignOperation.Value>
+                        <InArgument x:TypeArguments="x:String">[DateTime.Now.ToString("d-MMM-yyyy")]</InArgument>
+                      </ui:AssignOperation.Value>
+                    </ui:AssignOperation>
+                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_22">
+                      <ui:AssignOperation.To>
+                        <OutArgument x:TypeArguments="x:String">[beforeDate]</OutArgument>
+                      </ui:AssignOperation.To>
+                      <ui:AssignOperation.Value>
+                        <InArgument x:TypeArguments="x:String">[DateTime.Now.AddDays(-90).ToString("d-MMM-yyyy")]</InArgument>
+                      </ui:AssignOperation.Value>
+                    </ui:AssignOperation>
+                  </scg:List>
+                </ui:MultipleAssign.AssignOperations>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </ui:MultipleAssign>
+              <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="479,53" sap2010:WorkflowViewState.IdRef="MultipleAssign_6">
+                <ui:MultipleAssign.AssignOperations>
+                  <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
+                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_23">
+                      <ui:AssignOperation.To>
+                        <OutArgument x:TypeArguments="x:String">[startDay]</OutArgument>
+                      </ui:AssignOperation.To>
+                      <ui:AssignOperation.Value>
+                        <InArgument x:TypeArguments="x:String">[split( beforeDate,"-")(0).Trim]</InArgument>
+                      </ui:AssignOperation.Value>
+                    </ui:AssignOperation>
+                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_24">
+                      <ui:AssignOperation.To>
+                        <OutArgument x:TypeArguments="x:String">[startYear]</OutArgument>
+                      </ui:AssignOperation.To>
+                      <ui:AssignOperation.Value>
+                        <InArgument x:TypeArguments="x:String">[split( beforeDate,"-")(2).Trim]</InArgument>
+                      </ui:AssignOperation.Value>
+                    </ui:AssignOperation>
+                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_25">
+                      <ui:AssignOperation.To>
+                        <OutArgument x:TypeArguments="x:String">[startMonth]</OutArgument>
+                      </ui:AssignOperation.To>
+                      <ui:AssignOperation.Value>
+                        <InArgument x:TypeArguments="x:String">[split(split(beforeDate,"-")(1).Trim,"-")(0)]</InArgument>
+                      </ui:AssignOperation.Value>
+                    </ui:AssignOperation>
+                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_26">
+                      <ui:AssignOperation.To>
+                        <OutArgument x:TypeArguments="x:String">[endDay]</OutArgument>
+                      </ui:AssignOperation.To>
+                      <ui:AssignOperation.Value>
+                        <InArgument x:TypeArguments="x:String">[split( currentDate,"-")(0).Trim]</InArgument>
+                      </ui:AssignOperation.Value>
+                    </ui:AssignOperation>
+                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_27">
+                      <ui:AssignOperation.To>
+                        <OutArgument x:TypeArguments="x:String">[endYear]</OutArgument>
+                      </ui:AssignOperation.To>
+                      <ui:AssignOperation.Value>
+                        <InArgument x:TypeArguments="x:String">[split( currentDate,"-")(2).Trim]</InArgument>
+                      </ui:AssignOperation.Value>
+                    </ui:AssignOperation>
+                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_28">
+                      <ui:AssignOperation.To>
+                        <OutArgument x:TypeArguments="x:String">[endMonth]</OutArgument>
+                      </ui:AssignOperation.To>
+                      <ui:AssignOperation.Value>
+                        <InArgument x:TypeArguments="x:String">[split(split(currentDate,"-")(1).Trim,"-")(0)]</InArgument>
+                      </ui:AssignOperation.Value>
+                    </ui:AssignOperation>
+                  </scg:List>
+                </ui:MultipleAssign.AssignOperations>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </ui:MultipleAssign>
+            </Sequence>
+          </If.Else>
+        </If>
+        <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="OrderItems_SelectDateRange.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="434,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_13" UnSafe="False" WorkflowFileName="Uniware_OrderItems_SelectDateRange.xaml">
+          <ui:InvokeWorkflowFile.Arguments>
+            <InArgument x:TypeArguments="x:String" x:Key="in_StartYear">[startYear]</InArgument>
+            <InArgument x:TypeArguments="x:String" x:Key="in_StartMonth">[startMonth]</InArgument>
+            <InArgument x:TypeArguments="x:String" x:Key="in_EndYear">[endYear]</InArgument>
+            <InArgument x:TypeArguments="x:String" x:Key="in_EndMonth">[endMonth]</InArgument>
+            <InArgument x:TypeArguments="x:String" x:Key="in_EndDate">[endDay]</InArgument>
+            <InArgument x:TypeArguments="x:String" x:Key="in_StartDay">[startDay]</InArgument>
+          </ui:InvokeWorkflowFile.Arguments>
+        </ui:InvokeWorkflowFile>
+        <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="ExportOrderItemsReport.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="434,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_14" UnSafe="False" WorkflowFileName="Uniware_ExportOrderItemsReport.xaml">
+          <ui:InvokeWorkflowFile.Arguments>
+            <scg:Dictionary x:TypeArguments="x:String, Argument" />
+          </ui:InvokeWorkflowFile.Arguments>
+        </ui:InvokeWorkflowFile>
+        <Assign sap:VirtualizedContainerService.HintSize="434,83" sap2010:WorkflowViewState.IdRef="Assign_1">
+          <Assign.To>
+            <OutArgument x:TypeArguments="x:String">[Uniware_OrderItem_InputFile]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="x:String">[Config("InputFilePath").ToString+"Uniware_OrderItem_InputFile_"+now.tostring("ddMMyyyyhhmmss")+".csv"]</InArgument>
+          </Assign.Value>
+        </Assign>
+        <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="SaveOrderItem_ReportFile.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="434,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_15" UnSafe="False" WorkflowFileName="Uniware_SaveOrderItem_ReportFile.xaml">
+          <ui:InvokeWorkflowFile.Arguments>
+            <InArgument x:TypeArguments="x:String" x:Key="in_OrderItem_ExportFilePath">[Uniware_OrderItem_InputFile]</InArgument>
+          </ui:InvokeWorkflowFile.Arguments>
+        </ui:InvokeWorkflowFile>
+      </Sequence>
+      <Sequence DisplayName="Enabled Product Item Sequence" sap:VirtualizedContainerService.HintSize="450,83" sap2010:WorkflowViewState.IdRef="Sequence_27">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Uniware_NavigateTo_EnableProductOrderReport.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="434,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_25" UnSafe="False" WorkflowFileName="Uniware_NavigateTo_EnableProductOrderReport.xaml">
+          <ui:InvokeWorkflowFile.Arguments>
+            <scg:Dictionary x:TypeArguments="x:String, Argument" />
+          </ui:InvokeWorkflowFile.Arguments>
+        </ui:InvokeWorkflowFile>
+        <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Uniware_EnableProductOrder_Report.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="434,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_26" UnSafe="False" WorkflowFileName="Uniware_EnableProductOrder_Report.xaml">
+          <ui:InvokeWorkflowFile.Arguments>
+            <scg:Dictionary x:TypeArguments="x:String, Argument" />
+          </ui:InvokeWorkflowFile.Arguments>
+        </ui:InvokeWorkflowFile>
+        <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_4">
+          <Assign.To>
+            <OutArgument x:TypeArguments="x:String">[Uniware_EnableProduct_InputFile]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="x:String">[Config("InputFilePath").ToString+"Uniware_EnableProduct_InputFile_"+now.tostring("ddMMyyyyhhmmss")+".csv"]</InArgument>
+          </Assign.Value>
+        </Assign>
+        <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Uniware_SaveEnableProductOrder_Report.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="434,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_27" UnSafe="False" WorkflowFileName="Uniware_SaveEnableProductOrder_Report.xaml">
+          <ui:InvokeWorkflowFile.Arguments>
+            <InArgument x:TypeArguments="x:String" x:Key="in_EnableOrder_ExportFilePath">[Uniware_EnableProduct_InputFile]</InArgument>
+          </ui:InvokeWorkflowFile.Arguments>
+        </ui:InvokeWorkflowFile>
+      </Sequence>
+    </Sequence>
+    <Sequence DisplayName="Click Post" sap:VirtualizedContainerService.HintSize="496,1633" sap2010:WorkflowViewState.IdRef="Sequence_61">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <ui:KillProcess AppliesTo="{x:Null}" ContinueOnError="{x:Null}" Process="{x:Null}" DisplayName="Kill Process" sap:VirtualizedContainerService.HintSize="434,53" sap2010:WorkflowViewState.IdRef="KillProcess_2" ProcessName="Chrome">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </ui:KillProcess>
+      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Clickpost_Login.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="434,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Clickpost_Login.xaml">
+        <ui:InvokeWorkflowFile.Arguments>
+          <InArgument x:TypeArguments="x:String" x:Key="in_ClickpostURL">[Config("ClickPostURL").ToString]</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="in_ClickpostLoginID">[Config("ClickPostLoginID").ToString]</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="in_ClickpostLoginPassword">[Config("ClickPostLoginPassword").ToString]</InArgument>
+        </ui:InvokeWorkflowFile.Arguments>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </ui:InvokeWorkflowFile>
+      <If Condition="[Config(&quot;isCustomDateClickPost&quot;).ToString.ToUpper.Contains(&quot;TRUE&quot;)]" DisplayName="If -Date Checker" sap:VirtualizedContainerService.HintSize="434,53" sap2010:WorkflowViewState.IdRef="If_5">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <If.Then>
+          <Sequence sap:VirtualizedContainerService.HintSize="521,236" sap2010:WorkflowViewState.IdRef="Sequence_41">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="479,148" sap2010:WorkflowViewState.IdRef="MultipleAssign_10">
+              <ui:MultipleAssign.AssignOperations>
+                <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_36">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="x:String">[StartDate]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="x:String">[Config("ClickPost_StartDate").ToString]</InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_37">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="x:String">[EndDate]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="x:String">[Config("ClickPost_EndDate").ToString]</InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                </scg:List>
+              </ui:MultipleAssign.AssignOperations>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:MultipleAssign>
+          </Sequence>
+        </If.Then>
+        <If.Else>
+          <Sequence sap:VirtualizedContainerService.HintSize="521,236" sap2010:WorkflowViewState.IdRef="Sequence_42">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="479,148" sap2010:WorkflowViewState.IdRef="MultipleAssign_7">
+              <ui:MultipleAssign.AssignOperations>
+                <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_29">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="x:String">[StartDate]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="x:String">[DateTime.Now.AddDays(-90).ToString("yyyy-MM-dd")]</InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_30">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="x:String">[EndDate]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="x:String">[DateTime.Now.ToString("yyyy-MM-dd")]</InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                </scg:List>
+              </ui:MultipleAssign.AssignOperations>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:MultipleAssign>
+          </Sequence>
+        </If.Else>
+      </If>
+      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Clickpost_NavigateToOrdersAndSelectDateRange.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="434,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Clickpost_NavigateToOrdersAndSelectDateRange.xaml">
+        <ui:InvokeWorkflowFile.Arguments>
+          <InArgument x:TypeArguments="x:String" x:Key="in_StartRange">[StartDate]</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="in_EndRange">[EndDate]</InArgument>
+        </ui:InvokeWorkflowFile.Arguments>
+      </ui:InvokeWorkflowFile>
+      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Clickpost_SelectStatusTypeAndGenerateReport.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="434,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="Clickpost_SelectStatusTypeAndGenerateReport.xaml">
+        <ui:InvokeWorkflowFile.Arguments>
+          <InArgument x:TypeArguments="x:String" x:Key="BreakTriggerScopeInArgument" />
+        </ui:InvokeWorkflowFile.Arguments>
+      </ui:InvokeWorkflowFile>
+      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="ClickPost_SelectAllFields.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="434,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_31" UnSafe="False" WorkflowFileName="ClickPost_SelectAllFields.xaml">
+        <ui:InvokeWorkflowFile.Arguments>
+          <scg:Dictionary x:TypeArguments="x:String, Argument" />
+        </ui:InvokeWorkflowFile.Arguments>
+      </ui:InvokeWorkflowFile>
+      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Clickpost_EnterReportName_AndSendToEmail.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="434,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="Clickpost_EnterReportName_AndSendToEmail.xaml">
+        <ui:InvokeWorkflowFile.Arguments>
+          <InArgument x:TypeArguments="x:String" x:Key="in_ReportName">["RRO Data_"+now.ToString("ddMMyyy")]</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="in_EmailID">[Config("EmailIDToSendClickpostReport").ToString]</InArgument>
+        </ui:InvokeWorkflowFile.Arguments>
+      </ui:InvokeWorkflowFile>
+      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Gmail_ExtractCSVDownloadLink.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="434,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_22" UnSafe="False" WorkflowFileName="Gmail_ExtractCSVDownloadLink.xaml">
+        <ui:InvokeWorkflowFile.Arguments>
+          <OutArgument x:TypeArguments="x:String" x:Key="out_CSVDownloadLink">[CsvDownloadLink]</OutArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="BreakTriggerScopeInArgument" />
+        </ui:InvokeWorkflowFile.Arguments>
+      </ui:InvokeWorkflowFile>
+      <Assign sap:VirtualizedContainerService.HintSize="434,83" sap2010:WorkflowViewState.IdRef="Assign_3">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:String">[Clickpost_InputFile]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:String">[Config("InputFilePath").ToString+"Clickpost_InputFile_"+now.tostring("ddMMyyyyhhmmss")+".csv"]</InArgument>
+        </Assign.Value>
+      </Assign>
+      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Clickpost_DownloadCSVFile.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="434,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_24" UnSafe="False" WorkflowFileName="Clickpost_DownloadCSVFile.xaml">
+        <ui:InvokeWorkflowFile.Arguments>
+          <InArgument x:TypeArguments="x:String" x:Key="in_CSVDownloadPath">[Clickpost_InputFile]</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="in_CSVDownloadLink">[CsvDownloadLink]</InArgument>
+        </ui:InvokeWorkflowFile.Arguments>
+      </ui:InvokeWorkflowFile>
+      <ui:KillProcess AppliesTo="{x:Null}" ContinueOnError="{x:Null}" Process="{x:Null}" DisplayName="Kill Process" sap:VirtualizedContainerService.HintSize="434,135" sap2010:WorkflowViewState.IdRef="KillProcess_3" ProcessName="Chrome" />
+    </Sequence>
+    <Sequence DisplayName="Final Report Generate" sap:VirtualizedContainerService.HintSize="496,83" sap2010:WorkflowViewState.IdRef="Sequence_62">
+      <Sequence.Variables>
+        <Variable x:TypeArguments="sd:DataTable" Name="dt_VendorPOSheet" />
+        <Variable x:TypeArguments="x:Int32" Name="indexVendorPO" />
+        <Variable x:TypeArguments="x:Boolean" Name="isAllDataFilled" />
+        <Variable x:TypeArguments="x:Int32" Name="totalRowsInVendorPOSheet" />
+        <Variable x:TypeArguments="x:String" Name="isMsgOK" />
+      </Sequence.Variables>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="479,178" sap2010:WorkflowViewState.IdRef="MultipleAssign_9">
+        <ui:MultipleAssign.AssignOperations>
+          <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_33">
+              <ui:AssignOperation.To>
+                <OutArgument x:TypeArguments="x:String">[VendorPOReceiptPath]</OutArgument>
+              </ui:AssignOperation.To>
+              <ui:AssignOperation.Value>
+                <InArgument x:TypeArguments="x:String">[Config("VendorPO_RecieptPath").ToString]</InArgument>
+              </ui:AssignOperation.Value>
+            </ui:AssignOperation>
+            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_34">
+              <ui:AssignOperation.To>
+                <OutArgument x:TypeArguments="x:String">[PivotScreenshotsPath]</OutArgument>
+              </ui:AssignOperation.To>
+              <ui:AssignOperation.Value>
+                <InArgument x:TypeArguments="x:String">[Config("PivotScreenshotsPath").ToString]</InArgument>
+              </ui:AssignOperation.Value>
+            </ui:AssignOperation>
+            <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_35">
+              <ui:AssignOperation.To>
+                <OutArgument x:TypeArguments="x:String">[OutputFile]</OutArgument>
+              </ui:AssignOperation.To>
+              <ui:AssignOperation.Value>
+                <InArgument x:TypeArguments="x:String">[Config("OutputFilePath").ToString+"Report_"+now.ToString("ddMMyyyyhhmmss")+".xlsx"]</InArgument>
+              </ui:AssignOperation.Value>
+            </ui:AssignOperation>
+          </scg:List>
+        </ui:MultipleAssign.AssignOperations>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </ui:MultipleAssign>
+      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="PuchaseOrder_CreateOutput.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="479,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_28" UnSafe="False" WorkflowFileName="PuchaseOrder_CreateOutput.xaml">
+        <ui:InvokeWorkflowFile.Arguments>
+          <InArgument x:TypeArguments="x:String" x:Key="in_OutputFilePath">[OutputFile]</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="in_InputFilePath">[Uniware_PurchaseOrder_InputFile]</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="in_OutputFileSheetName">Considior PO Pending QTY</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="in_PivotSheetName" xml:space="preserve">Pending Qty Pivot  Table</InArgument>
+        </ui:InvokeWorkflowFile.Arguments>
+      </ui:InvokeWorkflowFile>
+      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Pivot_PurchaseOrder.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="479,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_32" UnSafe="False" WorkflowFileName="Pivot_PurchaseOrder.xaml">
+        <ui:InvokeWorkflowFile.Arguments>
+          <InArgument x:TypeArguments="x:String" x:Key="in_OutputFilePath">[OutputFile]</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="in_OutputFileSheetName">Considior PO Pending QTY</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="in_PivotSheetName" xml:space="preserve">Pending Qty Pivot  Table</InArgument>
+        </ui:InvokeWorkflowFile.Arguments>
+      </ui:InvokeWorkflowFile>
+      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="OrderItem_CreateOutput.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="479,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_29" UnSafe="False" WorkflowFileName="OrderItem_CreateOutput.xaml">
+        <ui:InvokeWorkflowFile.Arguments>
+          <InArgument x:TypeArguments="x:String" x:Key="in_OutputFileSheetName">Unfulfillable Order Items</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="in_OutputFilePath">[OutputFile]</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="in_InputFilePath">[Uniware_OrderItem_InputFile]</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="in_PivotSheetName">Unfulfillable Pivot Table</InArgument>
+        </ui:InvokeWorkflowFile.Arguments>
+      </ui:InvokeWorkflowFile>
+      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Pivot_OrderItem.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="479,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_33" UnSafe="False" WorkflowFileName="Pivot_OrderItem.xaml">
+        <ui:InvokeWorkflowFile.Arguments>
+          <InArgument x:TypeArguments="x:String" x:Key="in_OutputFilePath">[OutputFile]</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="in_OutputFileSheetName">Unfulfillable Order Items</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="in_PivotSheetName">Unfulfillable Pivot Table</InArgument>
+        </ui:InvokeWorkflowFile.Arguments>
+      </ui:InvokeWorkflowFile>
+      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="EnableProduct_CreateOutput.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="479,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_30" UnSafe="False" WorkflowFileName="EnableProduct_CreateOutput.xaml">
+        <ui:InvokeWorkflowFile.Arguments>
+          <InArgument x:TypeArguments="x:String" x:Key="in_InputFilePath">[Uniware_EnableProduct_InputFile]</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="in_OutputFilePath">[OutputFile]</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="in_OutputFileSheetName">UC Enabled Products Export Data</InArgument>
+        </ui:InvokeWorkflowFile.Arguments>
+      </ui:InvokeWorkflowFile>
+      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="ConfirmRTO_CreateOuptput.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="479,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_34" UnSafe="False" WorkflowFileName="ConfirmRTO_CreateOuptput.xaml">
+        <ui:InvokeWorkflowFile.Arguments>
+          <InArgument x:TypeArguments="x:String" x:Key="in_OutputFilePath">[OutputFile]</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="in_OutputFileSheetName">Confirmed RTO Data</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="in_InputFilePath">[Clickpost_InputFile]</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="in_PivotSheetName">Confirmed RTO Pivot Table</InArgument>
+        </ui:InvokeWorkflowFile.Arguments>
+      </ui:InvokeWorkflowFile>
+      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Pivot_ConfirmRTO.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="479,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_35" UnSafe="False" WorkflowFileName="Pivot_ConfirmRTO.xaml">
+        <ui:InvokeWorkflowFile.Arguments>
+          <InArgument x:TypeArguments="x:String" x:Key="in_OutputFilePath">[OutputFile]</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="in_OutputFileSheetName">Confirmed RTO Data</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="in_PivotSheetName">Confirmed RTO Pivot Table</InArgument>
+        </ui:InvokeWorkflowFile.Arguments>
+      </ui:InvokeWorkflowFile>
+      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="ProductSKU_Vendors_CreateOutput.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="479,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_38" UnSafe="False" WorkflowFileName="ProductSKU_Vendors_CreateOutput.xaml">
+        <ui:InvokeWorkflowFile.Arguments>
+          <InArgument x:TypeArguments="x:String" x:Key="in_OutputFilePath">[OutputFile]</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="in_OutputFileSheetName">Product SKU - Vendors</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="in_InputVendorDistributionFilePath">[Config("VendorDistributionFilePath").ToString]</InArgument>
+        </ui:InvokeWorkflowFile.Arguments>
+      </ui:InvokeWorkflowFile>
+      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="VendorPO_CreateOutput.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="479,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_36" UnSafe="False" WorkflowFileName="VendorPO_CreateOutput.xaml">
+        <ui:InvokeWorkflowFile.Arguments>
+          <InArgument x:TypeArguments="x:String" x:Key="in_OutputFilePath">[OutputFile]</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="in_OutputFileSheetName">UC Enabled Products Export Data</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="in_PendingQtyPivotTable_SheetName" xml:space="preserve">Pending Qty Pivot  Table</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="in_UnfulfillablePivotTable_SheetName">Unfulfillable Pivot Table</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="in_ConfirmedRTOPivotTable_SheetName">Confirmed RTO Pivot Table</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="in_UCEnabledProducts_SheetName">UC Enabled Products Export Data</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="in_VendorPOCalculation_SheetName">Vendor PO Calculation</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="in_ProductSKUVendorSheetName">Product SKU - Vendors</InArgument>
+        </ui:InvokeWorkflowFile.Arguments>
+      </ui:InvokeWorkflowFile>
+      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="PivotSecondin_UnfulfillableSheet.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="479,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_37" UnSafe="False" WorkflowFileName="PivotSecondin_UnfulfillableSheet.xaml">
+        <ui:InvokeWorkflowFile.Arguments>
+          <InArgument x:TypeArguments="x:String" x:Key="in_OutputFilePath">[OutputFile]</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="in_OutputFileSheetName">Vendor PO Calculation</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="in_PivotSheetName">Unfulfillable Pivot Table</InArgument>
+        </ui:InvokeWorkflowFile.Arguments>
+      </ui:InvokeWorkflowFile>
+      <ui:MessageBox Caption="{x:Null}" AutoCloseAfter="00:00:00" Buttons="Ok" ChosenButton="[isMsgOK]" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="479,85" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[&quot;Press Ok To Open Vendor Report&quot;]" />
+      <If Condition="[isMsgOK = &quot;Ok&quot;]" sap:VirtualizedContainerService.HintSize="479,52" sap2010:WorkflowViewState.IdRef="If_4">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <If.Then>
+          <Sequence sap:VirtualizedContainerService.HintSize="526,394" sap2010:WorkflowViewState.IdRef="Sequence_36">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="484,306" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" InstanceCachePeriod="3000" WorkbookPath="[OutputFile]">
+              <ui:ExcelApplicationScope.Body>
+                <ActivityAction x:TypeArguments="ui:WorkbookApplication">
+                  <ActivityAction.Argument>
+                    <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
+                  </ActivityAction.Argument>
+                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="450,196" sap2010:WorkflowViewState.IdRef="Sequence_38">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ui:MessageBox ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" Caption="Fill Allocated Vendors" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="388,85" sap2010:WorkflowViewState.IdRef="MessageBox_3" Text="[&quot;Now Fill the Allocated Vendor PO, Save &amp; Click OK After Filling&quot;]" />
+                  </Sequence>
+                </ActivityAction>
+              </ui:ExcelApplicationScope.Body>
+            </ui:ExcelApplicationScope>
+          </Sequence>
+        </If.Then>
+        <If.Else>
+          <Sequence sap2010:WorkflowViewState.IdRef="Sequence_37" />
+        </If.Else>
+      </If>
+      <Delay Duration="00:00:05" sap:VirtualizedContainerService.HintSize="479,90" sap2010:WorkflowViewState.IdRef="Delay_1" />
+      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="CheckEmptyAllocatedVendorCells.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="479,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_48" UnSafe="False" WorkflowFileName="CheckEmptyAllocatedVendorCells.xaml">
+        <ui:InvokeWorkflowFile.Arguments>
+          <InArgument x:TypeArguments="x:String" x:Key="BreakTriggerScopeInArgument" />
+          <InArgument x:TypeArguments="x:String" x:Key="in_OutputFile">[OutputFile]</InArgument>
+        </ui:InvokeWorkflowFile.Arguments>
+      </ui:InvokeWorkflowFile>
+      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="AllocatedVendor_Report.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="479,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_40" UnSafe="False" WorkflowFileName="AllocatedVendor_Report.xaml">
+        <ui:InvokeWorkflowFile.Arguments>
+          <InArgument x:TypeArguments="x:String" x:Key="in_OutputFilePath">[OutputFile]</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="in_VendorPOCalculation_SheetName">Vendor PO Calculation</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="in_TempFolder">[Config("VendorPO_CsvFileFolder").ToString]</InArgument>
+          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="Config">[Config]</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="in_PO_RecieptPath">[VendorPOReceiptPath]</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="in_VendorPOFilePath">[VendorPOReceiptPath]</InArgument>
+          <OutArgument x:TypeArguments="sd:DataTable" x:Key="dt_CompletedVendorName">[dt_CompletedVendorName]</OutArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="in_VendorGroupFile">[Config("VendorMappingFile").ToString]</InArgument>
+        </ui:InvokeWorkflowFile.Arguments>
+      </ui:InvokeWorkflowFile>
+    </Sequence>
+    <Sequence DisplayName="Range Selection of Screenshots of Pivot " sap:VirtualizedContainerService.HintSize="496,1149" sap2010:WorkflowViewState.IdRef="Sequence_29">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Uniware_SendData_PendingQtyPivot.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="388,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_41" UnSafe="False" WorkflowFileName="Uniware_SendData_PendingQtyPivot.xaml">
+        <ui:InvokeWorkflowFile.Arguments>
+          <OutArgument x:TypeArguments="x:Int32" x:Key="out_Pivot2RowCount">[in_Pivot2RowCount]</OutArgument>
+          <OutArgument x:TypeArguments="x:Int32" x:Key="out_Pivot3RowCount">[in_Pivot3RowCount]</OutArgument>
+          <OutArgument x:TypeArguments="x:Int32" x:Key="out_Pivot4RowCount">[in_Pivot4RowCount]</OutArgument>
+          <OutArgument x:TypeArguments="x:Int32" x:Key="out_Pivot5RowCount">[in_Pivot5RowCount]</OutArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="in_OutputFile">[OutputFile]</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="in_PivotSheetName" xml:space="preserve">Pending Qty Pivot  Table</InArgument>
+          <OutArgument x:TypeArguments="x:Int32" x:Key="out_Pivot6RowCount">[in_Pivot6RowCount]</OutArgument>
+        </ui:InvokeWorkflowFile.Arguments>
+      </ui:InvokeWorkflowFile>
+      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Uniware_SS_PendingOrderPivot.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="388,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_42" UnSafe="False" WorkflowFileName="Uniware_SS_PendingOrderPivot.xaml">
+        <ui:InvokeWorkflowFile.Arguments>
+          <InArgument x:TypeArguments="x:String" x:Key="in_OutputFilePath">[OutputFile]</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="in_PivotSheetName" xml:space="preserve">Pending Qty Pivot  Table</InArgument>
+          <InArgument x:TypeArguments="x:Int32" x:Key="in_Pivot2_totalRows">[in_Pivot2RowCount]</InArgument>
+          <InArgument x:TypeArguments="x:Int32" x:Key="in_Pivot3_totalRows">[in_Pivot3RowCount]</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="in_ImageFolderPath">[PivotScreenshotsPath]</InArgument>
+          <InArgument x:TypeArguments="x:Int32" x:Key="in_Pivot4_totalRows">[in_Pivot4RowCount]</InArgument>
+          <InArgument x:TypeArguments="x:Int32" x:Key="in_Pivot5_totalRows">[in_Pivot5RowCount]</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="BreakTriggerScopeInArgument" />
+          <OutArgument x:TypeArguments="x:String" x:Key="out_PathPOpivot_VendorWiseAllPendingQTY">[in_PathPOpivot_VendorWiseAllPendingQTY]</OutArgument>
+          <OutArgument x:TypeArguments="x:String" x:Key="out_PathPOpivot_VendorWiseEDDcrossedPendingQTY">[in_PathPOpivot_VendorWiseEDDcrossedPendingQTY]</OutArgument>
+          <OutArgument x:TypeArguments="x:String" x:Key="out_PathPOpivot_VendorWiseMoreThan5DaysPendingQTY">[in_PathPOpivot_VendorWiseMoreThan5DaysPendingQTY]</OutArgument>
+          <OutArgument x:TypeArguments="x:String" x:Key="out_PathPOpivot_VendorEDDcrossedPendingQTY">[in_PathPOpivot_VendorEDDcrossedPendingQTY]</OutArgument>
+          <InArgument x:TypeArguments="x:Int32" x:Key="in_Pivot6_totalRows">[in_Pivot6RowCount]</InArgument>
+          <OutArgument x:TypeArguments="x:String" x:Key="out_PathPOpivot_AllPendingQTYData">[in_PathPOpivot_AllPendingQTYData]</OutArgument>
+        </ui:InvokeWorkflowFile.Arguments>
+      </ui:InvokeWorkflowFile>
+      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Uniware_SendData_UnfulfillablePivot.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="388,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_43" UnSafe="False" WorkflowFileName="Uniware_SendData_UnfulfillablePivot.xaml">
+        <ui:InvokeWorkflowFile.Arguments>
+          <OutArgument x:TypeArguments="x:Int32" x:Key="out_Pivot2RowCount">[in_Pivot2RowCount]</OutArgument>
+          <OutArgument x:TypeArguments="x:Int32" x:Key="out_Pivot3RowCount">[in_Pivot3RowCount]</OutArgument>
+          <OutArgument x:TypeArguments="x:Int32" x:Key="out_Pivot4RowCount">[in_Pivot4RowCount]</OutArgument>
+          <OutArgument x:TypeArguments="x:Int32" x:Key="out_Pivot5RowCount">[in_Pivot5RowCount]</OutArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="in_OutputFile">[OutputFile]</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="in_PivotSheetName">Unfulfillable Pivot Table</InArgument>
+        </ui:InvokeWorkflowFile.Arguments>
+      </ui:InvokeWorkflowFile>
+      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Uniware_SS_UnfulfillablePivot.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="388,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_44" UnSafe="False" WorkflowFileName="Uniware_SS_UnfulfillablePivot.xaml">
+        <ui:InvokeWorkflowFile.Arguments>
+          <InArgument x:TypeArguments="x:String" x:Key="in_OutputFilePath">[OutputFile]</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="in_PivotSheetName">Unfulfillable Pivot Table</InArgument>
+          <InArgument x:TypeArguments="x:Int32" x:Key="in_Pivot2_totalRows">[in_Pivot2RowCount]</InArgument>
+          <InArgument x:TypeArguments="x:Int32" x:Key="in_Pivot3_totalRows">8</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="in_ImageFolderPath">[PivotScreenshotsPath]</InArgument>
+          <InArgument x:TypeArguments="x:Int32" x:Key="in_Pivot4_totalRows">[in_Pivot4RowCount]</InArgument>
+          <InArgument x:TypeArguments="x:Int32" x:Key="in_Pivot5_totalRows">[in_Pivot5RowCount]</InArgument>
+          <OutArgument x:TypeArguments="x:String" x:Key="out_PathUnfulpivot_SumOf1XRealtime">[in_PathUnfulpivot_SumOf1XRealtime]</OutArgument>
+          <OutArgument x:TypeArguments="x:String" x:Key="out_PathUnfulpivot_OrdersDelayTrackerReport">[in_PathUnfulpivot_OrdersDelayTrackerReport]</OutArgument>
+          <OutArgument x:TypeArguments="x:String" x:Key="out_PathUnfulpivot_OrderFulfillmentDelayDays">[in_PathUnfulpivot_OrderFulfillmentDelayDays]</OutArgument>
+        </ui:InvokeWorkflowFile.Arguments>
+      </ui:InvokeWorkflowFile>
+      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Pivot_RaisedPOvendors.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="388,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_55" UnSafe="False" WorkflowFileName="Pivot_RaisedPOvendors.xaml">
+        <ui:InvokeWorkflowFile.Arguments>
+          <InArgument x:TypeArguments="x:String" x:Key="in_OutputFilePath">[OutputFile]</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="in_OutputFileSheetName">Vendor PO Calculation</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="in_PivotSheetName">SheetABC</InArgument>
+        </ui:InvokeWorkflowFile.Arguments>
+      </ui:InvokeWorkflowFile>
+      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Uniware_SendData_SheetABC.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="388,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_51" UnSafe="False" WorkflowFileName="Uniware_SendData_SheetABC.xaml">
+        <ui:InvokeWorkflowFile.Arguments>
+          <InArgument x:TypeArguments="x:String" x:Key="in_OutputFile">[OutputFile]</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="in_PivotSheetName">SheetABC</InArgument>
+          <OutArgument x:TypeArguments="x:Int32" x:Key="out_Pivot1RowCount">[in_Pivot1RowCount]</OutArgument>
+          <OutArgument x:TypeArguments="x:Int32" x:Key="out_Pivot2RowCount">[in_Pivot2RowCount]</OutArgument>
+          <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_dt_PivotPORaisedQtyReport">[in_dt_PivotPORaisedQtyReport]</OutArgument>
+        </ui:InvokeWorkflowFile.Arguments>
+      </ui:InvokeWorkflowFile>
+      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Uniware_SS_SheetABC.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="388,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_52" UnSafe="False" WorkflowFileName="Uniware_SS_SheetABC.xaml">
+        <ui:InvokeWorkflowFile.Arguments>
+          <InArgument x:TypeArguments="x:String" x:Key="in_OutputFilePath">[OutputFile]</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="in_PivotSheetName">SheetABC</InArgument>
+          <InArgument x:TypeArguments="x:Int32" x:Key="in_Pivot1_totalRows">[in_Pivot1RowCount]</InArgument>
+          <InArgument x:TypeArguments="x:Int32" x:Key="in_Pivot2_totalRows">[in_Pivot2RowCount]</InArgument>
+          <OutArgument x:TypeArguments="x:String" x:Key="out_PathTodayPORaisedQtyVendorWise">[in_PathTodayPORaisedQtyVendorWise]</OutArgument>
+          <OutArgument x:TypeArguments="x:String" x:Key="out_PathPOCalculationSummaryReportwithDataFields">[in_PathPOCalculationSummaryReportwithDataFields]</OutArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="in_ImageFolderPath">[PivotScreenshotsPath]</InArgument>
+        </ui:InvokeWorkflowFile.Arguments>
+      </ui:InvokeWorkflowFile>
+    </Sequence>
+    <Sequence DisplayName="Send SS on Cliq Portal" sap:VirtualizedContainerService.HintSize="496,472" sap2010:WorkflowViewState.IdRef="Sequence_30">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <ui:KillProcess AppliesTo="{x:Null}" ContinueOnError="{x:Null}" Process="{x:Null}" DisplayName="Kill Process" sap:VirtualizedContainerService.HintSize="388,53" sap2010:WorkflowViewState.IdRef="KillProcess_4" ProcessName="Chrome">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </ui:KillProcess>
+      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Cliq_Login.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="388,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_45" UnSafe="False" WorkflowFileName="Cliq_Login.xaml">
+        <ui:InvokeWorkflowFile.Arguments>
+          <InArgument x:TypeArguments="x:String" x:Key="in_URL">[Config("CliqURL").ToString]</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="in_LoginID">[Config("CliqLoginID").ToString]</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="in_LoginPassword">[Config("CliqLoginPassword").ToString]</InArgument>
+        </ui:InvokeWorkflowFile.Arguments>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </ui:InvokeWorkflowFile>
+      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Cliq_SendScreenshots.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="388,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_46" UnSafe="False" WorkflowFileName="Cliq_SendScreenshots.xaml">
+        <ui:InvokeWorkflowFile.Arguments>
+          <InArgument x:TypeArguments="x:String" x:Key="in_PathPOpivot_VendorEDDcrossedPendingQTY">
+            <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_PathPOpivot_VendorEDDcrossedPendingQTY" />
+          </InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="in_PathPOpivot_VendorWiseMoreThan5DaysPendingQTY">
+            <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_PathPOpivot_VendorWiseMoreThan5DaysPendingQTY" />
+          </InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="in_PathPOpivot_VendorWiseEDDcrossedPendingQTY">
+            <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_PathPOpivot_VendorWiseEDDcrossedPendingQTY" />
+          </InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="in_PathPOpivot_VendorWiseAllPendingQTY">
+            <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_PathPOpivot_VendorWiseAllPendingQTY" />
+          </InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="in_PathUnfulpivot_SumOf1XRealtime">
+            <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_PathUnfulpivot_SumOf1XRealtime" />
+          </InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="in_PathUnfulpivot_OrdersDelayTrackerReport">
+            <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_PathUnfulpivot_OrdersDelayTrackerReport" />
+          </InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="in_VendorPOFilePath">
+            <VisualBasicValue x:TypeArguments="x:String" ExpressionText="VendorPOReceiptPath" />
+          </InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="in_CliqThreadName">
+            <VisualBasicValue x:TypeArguments="x:String" ExpressionText="Config(&quot;CliqThreadName&quot;).ToString" />
+          </InArgument>
+          <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dt_CompletedVendorName">
+            <VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="dt_CompletedVendorName" />
+          </InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="in_PivotSheetName">
+            <Literal x:TypeArguments="x:String" xml:space="preserve">Pending Qty Pivot  Table</Literal>
+          </InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="in_OutputFilePath">
+            <VisualBasicValue x:TypeArguments="x:String" ExpressionText="OutputFile" />
+          </InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="BreakTriggerScopeInArgument" />
+          <InArgument x:TypeArguments="x:String" x:Key="in_PathUnfulpivot_OrderFulfillmentDelayDays">
+            <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_PathUnfulpivot_OrderFulfillmentDelayDays" />
+          </InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="in_PathTodayPORaisedQtyVendorWise">
+            <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_PathTodayPORaisedQtyVendorWise" />
+          </InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="in_PathPOCalculationSummaryReportwithDataFields">
+            <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_PathPOCalculationSummaryReportwithDataFields" />
+          </InArgument>
+          <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dt_PivotPORaisedQtyReport">
+            <VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="in_dt_PivotPORaisedQtyReport" />
+          </InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="in_PathPOpivot_AllPendingQTYData">
+            <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_PathPOpivot_AllPendingQTYData" />
+          </InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="in_ImageFolderPath">
+            <VisualBasicValue x:TypeArguments="x:String" ExpressionText="Config(&quot;PivotScreenshotsPath&quot;).ToString" />
+          </InArgument>
+        </ui:InvokeWorkflowFile.Arguments>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </ui:InvokeWorkflowFile>
+    </Sequence>
+    <Sequence DisplayName="Send SS on Whatsapp" sap:VirtualizedContainerService.HintSize="496,379" sap2010:WorkflowViewState.IdRef="Sequence_31">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="SendReportOnWhatsapp.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="388,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_47" UnSafe="False" WorkflowFileName="SendReportOnWhatsapp.xaml">
+        <ui:InvokeWorkflowFile.Arguments>
+          <scg:Dictionary x:TypeArguments="x:String, Argument" />
+        </ui:InvokeWorkflowFile.Arguments>
+      </ui:InvokeWorkflowFile>
+      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Whatsapp.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="388,114" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_49" UnSafe="False" WorkflowFileName="Whatsapp.xaml">
+        <ui:InvokeWorkflowFile.Arguments>
+          <InArgument x:TypeArguments="x:String" x:Key="in_PivotSheetName" xml:space="preserve">Pending Qty Pivot  Table</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="in_OutputFilePath">[OutputFile]</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="in_ImageFolderPath">[Config("PivotScreenshotsPath").ToString]</InArgument>
+          <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dt_CompletedVendorName">[dt_CompletedVendorName]</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="in_VendorPOFilePath">[Config("VendorPO_RecieptPath").ToString]</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="BreakTriggerScopeInArgument" />
+          <InArgument x:TypeArguments="x:String" x:Key="in_CliqThreadName">RPA - Product Vendors - Billing</InArgument>
+          <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dt_PivotPORaisedQtyReport">[in_dt_PivotPORaisedQtyReport]</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="in_VendorGroupFilePath">[Config("VendorMappingFile").tostring]</InArgument>
+        </ui:InvokeWorkflowFile.Arguments>
+      </ui:InvokeWorkflowFile>
+    </Sequence>
+  </Sequence>
+</Activity>

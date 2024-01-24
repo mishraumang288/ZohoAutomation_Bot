@@ -1,0 +1,204 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Uniware_SS_PendingOrderPivot" this:Uniware_SS_PendingOrderPivot.in_OutputFilePath="C:\Users\Admin\Documents\UiPath\UploadFileOnZohoFrom_ClickpostAndUniWare\Data\Output\Report_14112023061053.xlsx" this:Uniware_SS_PendingOrderPivot.in_PivotSheetName="Pending Qty Pivot  Table" this:Uniware_SS_PendingOrderPivot.in_Pivot2_totalRows="68" this:Uniware_SS_PendingOrderPivot.in_Pivot3_totalRows="70" this:Uniware_SS_PendingOrderPivot.in_ImageFolderPath="C:\Users\Admin\Documents\UiPath\UploadFileOnZohoFrom_ClickpostAndUniWare\Data\Save Pivot Screenshots\" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:this="clr-namespace:" xmlns:ueea="clr-namespace:UiPathTeam.Excel.Extensions.Activities;assembly=UiPathTeam.Excel.Extensions.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_OutputFilePath" Type="InArgument(x:String)" />
+    <x:Property Name="in_PivotSheetName" Type="InArgument(x:String)" />
+    <x:Property Name="in_Pivot2_totalRows" Type="InArgument(x:Int32)" />
+    <x:Property Name="in_Pivot3_totalRows" Type="InArgument(x:Int32)" />
+    <x:Property Name="in_ImageFolderPath" Type="InArgument(x:String)" />
+    <x:Property Name="in_Pivot4_totalRows" Type="InArgument(x:Int32)" />
+    <x:Property Name="in_Pivot5_totalRows" Type="InArgument(x:Int32)" />
+    <x:Property Name="out_PathUnfulpivot_SumOf1XRealtime" Type="OutArgument(x:String)" />
+    <x:Property Name="out_PathUnfulpivot_OrdersDelayTrackerReport" Type="OutArgument(x:String)" />
+    <x:Property Name="out_PathUnfulpivot_OrderFulfillmentDelayDays" Type="OutArgument(x:String)" />
+  </x:Members>
+  <this:Uniware_SS_PendingOrderPivot.in_Pivot4_totalRows>
+    <InArgument x:TypeArguments="x:Int32" />
+  </this:Uniware_SS_PendingOrderPivot.in_Pivot4_totalRows>
+  <this:Uniware_SS_PendingOrderPivot.in_Pivot5_totalRows>
+    <InArgument x:TypeArguments="x:Int32" />
+  </this:Uniware_SS_PendingOrderPivot.in_Pivot5_totalRows>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1240,1612</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>Uniware_SS_PendingOrderPivot_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>UiPathTeam.Excel.Extensions.Activities</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>UiPath.Excel.Activities</x:String>
+      <x:String>UiPath.Platform.ResourceHandling</x:String>
+      <x:String>System.ComponentModel</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Drawing.Common</AssemblyReference>
+      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Net.Mail</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>UiPathTeam.Excel.Extensions.Activities</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>Microsoft.Win32.Primitives</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="Uniware_SS_PendingOrderPivot" sap:VirtualizedContainerService.HintSize="688,1547" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ueea:ExcelExtensionScope ExistingSession="{x:Null}" Password="{x:Null}" Session="{x:Null}" CloseSession="False" DisplayName="Excel Extensions Scope" FilePath="[in_OutputFilePath]" sap:VirtualizedContainerService.HintSize="626,1263" sap2010:WorkflowViewState.IdRef="ExcelExtensionScope_1">
+      <ueea:ExcelExtensionScope.Body>
+        <ActivityAction x:TypeArguments="ueea:ExcelSession">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="ueea:ExcelSession" Name="ExcelScope" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="592,1153" sap2010:WorkflowViewState.IdRef="Sequence_2">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel - Pivot2" sap:VirtualizedContainerService.HintSize="530,1042" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" InstanceCachePeriod="3000" WorkbookPath="[in_OutputFilePath]">
+              <ui:ExcelApplicationScope.Body>
+                <ActivityAction x:TypeArguments="ui:WorkbookApplication">
+                  <ActivityAction.Argument>
+                    <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
+                  </ActivityAction.Argument>
+                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="496,932" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ui:ExcelSelectRange DisplayName="Select Range" sap:VirtualizedContainerService.HintSize="434,60" sap2010:WorkflowViewState.IdRef="ExcelSelectRange_1" Range="[&quot;G3:H&quot;+ (in_Pivot2_totalRows + 4).tostring]" SheetName="[in_PivotSheetName]">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </ui:ExcelSelectRange>
+                    <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_1">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:String">[out_PathUnfulpivot_SumOf1XRealtime]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:String">[in_ImageFolderPath+"Sum of 1X (Realtime)"+".jpg"]</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                    <ueea:CopyAsPitcure sap:VirtualizedContainerService.HintSize="434,25" sap2010:WorkflowViewState.IdRef="CopyAsPitcure_1" Path="[in_ImageFolderPath+&quot;Sum of 1X (Realtime)&quot;+&quot;.jpg&quot;]" ReduceQuality="True" />
+                    <ui:ExcelSelectRange DisplayName="Select Range" sap:VirtualizedContainerService.HintSize="434,60" sap2010:WorkflowViewState.IdRef="ExcelSelectRange_2" Range="[&quot;J1:K&quot;+ (in_Pivot3_totalRows + 4).tostring]" SheetName="[in_PivotSheetName]" />
+                    <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_2">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:String">[out_PathUnfulpivot_OrdersDelayTrackerReport]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:String">[in_ImageFolderPath+"UNFULFILLABLE ORDERS DELAY TRACKER REPORT"+".jpg"]</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                    <ueea:CopyAsPitcure sap:VirtualizedContainerService.HintSize="434,25" sap2010:WorkflowViewState.IdRef="CopyAsPitcure_2" Path="[out_PathUnfulpivot_OrdersDelayTrackerReport]" ReduceQuality="True" />
+                    <ui:ExcelSelectRange DisplayName="Select Range" sap:VirtualizedContainerService.HintSize="434,60" sap2010:WorkflowViewState.IdRef="ExcelSelectRange_3" Range="[&quot;M1:N&quot;+ (in_Pivot4_totalRows + 4).tostring]" SheetName="[in_PivotSheetName]">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </ui:ExcelSelectRange>
+                    <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_3">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:String">[out_PathUnfulpivot_OrderFulfillmentDelayDays]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:String">[in_ImageFolderPath+"Catalogue wise Unfulfillable Orders Report"+".jpg"]</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                    <ueea:CopyAsPitcure sap:VirtualizedContainerService.HintSize="434,25" sap2010:WorkflowViewState.IdRef="CopyAsPitcure_3" Path="[out_PathUnfulpivot_OrderFulfillmentDelayDays]" ReduceQuality="True" />
+                  </Sequence>
+                </ActivityAction>
+              </ui:ExcelApplicationScope.Body>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:ExcelApplicationScope>
+          </Sequence>
+        </ActivityAction>
+      </ueea:ExcelExtensionScope.Body>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ueea:ExcelExtensionScope>
+    <ui:KillProcess AppliesTo="{x:Null}" ContinueOnError="{x:Null}" Process="{x:Null}" DisplayName="Kill Process" sap:VirtualizedContainerService.HintSize="626,133" sap2010:WorkflowViewState.IdRef="KillProcess_1" ProcessName="Excel" />
+  </Sequence>
+</Activity>

@@ -1,0 +1,376 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="SelectDateRange" this:SelectDateRange.in_StartYear="2023" this:SelectDateRange.in_StartMonth="Jan" this:SelectDateRange.in_EndYear="2023" this:SelectDateRange.in_EndMonth="Apr" this:SelectDateRange.in_EndDate="1" this:SelectDateRange.in_StartDay="1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_StartYear" Type="InArgument(x:String)" />
+    <x:Property Name="in_StartMonth" Type="InArgument(x:String)" />
+    <x:Property Name="in_EndYear" Type="InArgument(x:String)" />
+    <x:Property Name="in_EndMonth" Type="InArgument(x:String)" />
+    <x:Property Name="in_EndDate" Type="InArgument(x:String)" />
+    <x:Property Name="in_StartDay" Type="InArgument(x:String)" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1150,970.6666666666666</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>SelectDateRange_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>UiPath.Testing.Activities</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>System.Reflection</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Drawing.Common</AssemblyReference>
+      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.ViewModels</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="SelectDateRange" sap:VirtualizedContainerService.HintSize="608,906" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="Attach Browser 'chrome.exe Uniware'" sap:VirtualizedContainerService.HintSize="546,795.3333333333334" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="2a9d2c2967bcf29147c9e771c79f1a5c" Selector="&lt;html app='chrome.exe' title='*Uniware*' /&gt;">
+      <ui:BrowserScope.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="512,648" sap2010:WorkflowViewState.IdRef="Sequence_2">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'DataRange CheckBox'" sap:VirtualizedContainerService.HintSize="450,54" sap2010:WorkflowViewState.IdRef="Click_1" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
+              <ui:Click.CursorPosition>
+                <ui:CursorPosition Position="Center">
+                  <ui:CursorPosition.OffsetX>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetX>
+                  <ui:CursorPosition.OffsetY>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetY>
+                </ui:CursorPosition>
+              </ui:Click.CursorPosition>
+              <ui:Click.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="363630a8-7f67-45c1-bdec-c94450fc897c" InformativeScreenshot="1b2f671c7853cc85586d6e26f9d13810" Selector="&lt;webctrl id='ngframe' tag='IFRAME' /&gt;&lt;webctrl tableRow='10' tag='ION-CHECKBOX' /&gt;&lt;webctrl shadowhostid='' tableRow='10' tag='LABEL' /&gt;">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:Click.Target>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:Click>
+            <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" AlterIfDisabled="False" ClickType="CLICK_SINGLE" DisplayName="Click 'Calender Icon'" sap:VirtualizedContainerService.HintSize="450,54" sap2010:WorkflowViewState.IdRef="Click_2" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
+              <ui:Click.CursorPosition>
+                <ui:CursorPosition Position="Center">
+                  <ui:CursorPosition.OffsetX>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetX>
+                  <ui:CursorPosition.OffsetY>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetY>
+                </ui:CursorPosition>
+              </ui:Click.CursorPosition>
+              <ui:Click.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="caacd45b-3c40-44e3-b5bc-6f5d09202d2e" InformativeScreenshot="c595e580ebc1cc8f9824d214d773d746" Selector="&lt;webctrl id='ngframe' tag='IFRAME' /&gt;&lt;webctrl tableRow='10' tag='ION-ICON' /&gt;">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:Click.Target>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:Click>
+            <Sequence DisplayName="Choose start Date" sap:VirtualizedContainerService.HintSize="450,81" sap2010:WorkflowViewState.IdRef="Sequence_3">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:SelectItem AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Select Item 'Start Year'" sap:VirtualizedContainerService.HintSize="388,155" sap2010:WorkflowViewState.IdRef="SelectItem_1" Item="[in_StartYear]">
+                <ui:SelectItem.Items>
+                  <scg:List x:TypeArguments="x:String" Capacity="32">
+                    <x:String>2009</x:String>
+                    <x:String>2010</x:String>
+                    <x:String>2011</x:String>
+                    <x:String>2012</x:String>
+                    <x:String>2013</x:String>
+                    <x:String>2014</x:String>
+                    <x:String>2015</x:String>
+                    <x:String>2016</x:String>
+                    <x:String>2017</x:String>
+                    <x:String>2018</x:String>
+                    <x:String>2019</x:String>
+                    <x:String>2020</x:String>
+                    <x:String>2021</x:String>
+                    <x:String>2022</x:String>
+                    <x:String>2023</x:String>
+                    <x:String>2024</x:String>
+                    <x:String>2025</x:String>
+                    <x:String>2026</x:String>
+                    <x:String>2027</x:String>
+                    <x:String>2028</x:String>
+                    <x:String>2029</x:String>
+                  </scg:List>
+                </ui:SelectItem.Items>
+                <ui:SelectItem.Target>
+                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="b30f84a4-e5ef-4fda-8132-87e93159930a" InformativeScreenshot="4e3a2337f16181506cfe3c33ae26466b" Selector="&lt;webctrl id='ngframe' tag='IFRAME' /&gt;&lt;webctrl aria-label='Select year' tag='SELECT' /&gt;">
+                    <ui:Target.TimeoutMS>
+                      <InArgument x:TypeArguments="x:Int32" />
+                    </ui:Target.TimeoutMS>
+                    <ui:Target.WaitForReady>
+                      <InArgument x:TypeArguments="ui:WaitForReady" />
+                    </ui:Target.WaitForReady>
+                  </ui:Target>
+                </ui:SelectItem.Target>
+              </ui:SelectItem>
+              <ui:SelectItem AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Select Item 'Start Month'" sap:VirtualizedContainerService.HintSize="388,155" sap2010:WorkflowViewState.IdRef="SelectItem_2" Item="[in_StartMonth]">
+                <ui:SelectItem.Items>
+                  <scg:List x:TypeArguments="x:String" Capacity="16">
+                    <x:String>Jan</x:String>
+                    <x:String>Feb</x:String>
+                    <x:String>Mar</x:String>
+                    <x:String>Apr</x:String>
+                    <x:String>May</x:String>
+                    <x:String>Jun</x:String>
+                    <x:String>Jul</x:String>
+                    <x:String>Aug</x:String>
+                    <x:String>Sep</x:String>
+                    <x:String>Oct</x:String>
+                    <x:String>Nov</x:String>
+                    <x:String>Dec</x:String>
+                  </scg:List>
+                </ui:SelectItem.Items>
+                <ui:SelectItem.Target>
+                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="9d9007eb-fcbc-4186-a4a1-00ec6066f156" InformativeScreenshot="5bfb28afb526050d724dc316fa60c43a" Selector="&lt;webctrl id='ngframe' tag='IFRAME' /&gt;&lt;webctrl tag='SELECT' /&gt;">
+                    <ui:Target.TimeoutMS>
+                      <InArgument x:TypeArguments="x:Int32" />
+                    </ui:Target.TimeoutMS>
+                    <ui:Target.WaitForReady>
+                      <InArgument x:TypeArguments="ui:WaitForReady" />
+                    </ui:Target.WaitForReady>
+                  </ui:Target>
+                </ui:SelectItem.Target>
+              </ui:SelectItem>
+              <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'Start Date'" sap:VirtualizedContainerService.HintSize="388,107" sap2010:WorkflowViewState.IdRef="Click_3" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
+                <ui:Click.CursorPosition>
+                  <ui:CursorPosition Position="Center">
+                    <ui:CursorPosition.OffsetX>
+                      <InArgument x:TypeArguments="x:Int32" />
+                    </ui:CursorPosition.OffsetX>
+                    <ui:CursorPosition.OffsetY>
+                      <InArgument x:TypeArguments="x:Int32" />
+                    </ui:CursorPosition.OffsetY>
+                  </ui:CursorPosition>
+                </ui:Click.CursorPosition>
+                <ui:Click.Target>
+                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="0d9050c5-b960-416a-8bf3-b1d7327239d4" InformativeScreenshot="2fdc43525ded1007f8a26184538ced50" Selector="[string.Format(&quot;&lt;webctrl id='ngframe' tag='IFRAME' /&gt;&lt;webctrl class='custom-day' tag='SPAN' idx='{0}' /&gt;&quot;, in_StartDay)]">
+                    <ui:Target.TimeoutMS>
+                      <InArgument x:TypeArguments="x:Int32" />
+                    </ui:Target.TimeoutMS>
+                    <ui:Target.WaitForReady>
+                      <InArgument x:TypeArguments="ui:WaitForReady" />
+                    </ui:Target.WaitForReady>
+                  </ui:Target>
+                </ui:Click.Target>
+              </ui:Click>
+            </Sequence>
+            <Sequence DisplayName="Choose end Date" sap:VirtualizedContainerService.HintSize="450,81" sap2010:WorkflowViewState.IdRef="Sequence_4">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:SelectItem AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Select Item 'End Year'" sap:VirtualizedContainerService.HintSize="388,155" sap2010:WorkflowViewState.IdRef="SelectItem_3" Item="[in_EndYear]">
+                <ui:SelectItem.Items>
+                  <scg:List x:TypeArguments="x:String" Capacity="32">
+                    <x:String>2009</x:String>
+                    <x:String>2010</x:String>
+                    <x:String>2011</x:String>
+                    <x:String>2012</x:String>
+                    <x:String>2013</x:String>
+                    <x:String>2014</x:String>
+                    <x:String>2015</x:String>
+                    <x:String>2016</x:String>
+                    <x:String>2017</x:String>
+                    <x:String>2018</x:String>
+                    <x:String>2019</x:String>
+                    <x:String>2020</x:String>
+                    <x:String>2021</x:String>
+                    <x:String>2022</x:String>
+                    <x:String>2023</x:String>
+                    <x:String>2024</x:String>
+                    <x:String>2025</x:String>
+                    <x:String>2026</x:String>
+                    <x:String>2027</x:String>
+                    <x:String>2028</x:String>
+                    <x:String>2029</x:String>
+                  </scg:List>
+                </ui:SelectItem.Items>
+                <ui:SelectItem.Target>
+                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="b30f84a4-e5ef-4fda-8132-87e93159930a" InformativeScreenshot="4e3a2337f16181506cfe3c33ae26466b" Selector="&lt;webctrl id='ngframe' tag='IFRAME' /&gt;&lt;webctrl aria-label='Select year' tag='SELECT' /&gt;">
+                    <ui:Target.TimeoutMS>
+                      <InArgument x:TypeArguments="x:Int32" />
+                    </ui:Target.TimeoutMS>
+                    <ui:Target.WaitForReady>
+                      <InArgument x:TypeArguments="ui:WaitForReady" />
+                    </ui:Target.WaitForReady>
+                  </ui:Target>
+                </ui:SelectItem.Target>
+              </ui:SelectItem>
+              <ui:SelectItem AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Select Item 'End Month'" sap:VirtualizedContainerService.HintSize="388,155" sap2010:WorkflowViewState.IdRef="SelectItem_4" Item="[in_EndMonth]">
+                <ui:SelectItem.Items>
+                  <scg:List x:TypeArguments="x:String" Capacity="16">
+                    <x:String>Jan</x:String>
+                    <x:String>Feb</x:String>
+                    <x:String>Mar</x:String>
+                    <x:String>Apr</x:String>
+                    <x:String>May</x:String>
+                    <x:String>Jun</x:String>
+                    <x:String>Jul</x:String>
+                    <x:String>Aug</x:String>
+                    <x:String>Sep</x:String>
+                    <x:String>Oct</x:String>
+                    <x:String>Nov</x:String>
+                    <x:String>Dec</x:String>
+                  </scg:List>
+                </ui:SelectItem.Items>
+                <ui:SelectItem.Target>
+                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="9d9007eb-fcbc-4186-a4a1-00ec6066f156" InformativeScreenshot="5bfb28afb526050d724dc316fa60c43a" Selector="&lt;webctrl id='ngframe' tag='IFRAME' /&gt;&lt;webctrl tag='SELECT' /&gt;">
+                    <ui:Target.TimeoutMS>
+                      <InArgument x:TypeArguments="x:Int32" />
+                    </ui:Target.TimeoutMS>
+                    <ui:Target.WaitForReady>
+                      <InArgument x:TypeArguments="ui:WaitForReady" />
+                    </ui:Target.WaitForReady>
+                  </ui:Target>
+                </ui:SelectItem.Target>
+              </ui:SelectItem>
+              <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'End Date'" sap:VirtualizedContainerService.HintSize="388,107" sap2010:WorkflowViewState.IdRef="Click_4" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
+                <ui:Click.CursorPosition>
+                  <ui:CursorPosition Position="Center">
+                    <ui:CursorPosition.OffsetX>
+                      <InArgument x:TypeArguments="x:Int32" />
+                    </ui:CursorPosition.OffsetX>
+                    <ui:CursorPosition.OffsetY>
+                      <InArgument x:TypeArguments="x:Int32" />
+                    </ui:CursorPosition.OffsetY>
+                  </ui:CursorPosition>
+                </ui:Click.CursorPosition>
+                <ui:Click.Target>
+                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="0d9050c5-b960-416a-8bf3-b1d7327239d4" InformativeScreenshot="2fdc43525ded1007f8a26184538ced50" Selector="[string.Format(&quot;&lt;webctrl id='ngframe' tag='IFRAME' /&gt;&lt;webctrl class='custom-day' tag='SPAN' idx='{0}' /&gt;&quot;, in_EndDate)]">
+                    <ui:Target.TimeoutMS>
+                      <InArgument x:TypeArguments="x:Int32" />
+                    </ui:Target.TimeoutMS>
+                    <ui:Target.WaitForReady>
+                      <InArgument x:TypeArguments="ui:WaitForReady" />
+                    </ui:Target.WaitForReady>
+                  </ui:Target>
+                </ui:Click.Target>
+              </ui:Click>
+            </Sequence>
+            <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'Create Export'" sap:VirtualizedContainerService.HintSize="450,107" sap2010:WorkflowViewState.IdRef="Click_5" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
+              <ui:Click.CursorPosition>
+                <ui:CursorPosition Position="Center">
+                  <ui:CursorPosition.OffsetX>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetX>
+                  <ui:CursorPosition.OffsetY>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:CursorPosition.OffsetY>
+                </ui:CursorPosition>
+              </ui:Click.CursorPosition>
+              <ui:Click.Target>
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="2e3db42c-a0e3-4d07-8b03-36e245442417" InformativeScreenshot="43f93384ff9410a2b6059ac9b8aba6a9" Selector="&lt;webctrl id='ngframe' tag='IFRAME' /&gt;&lt;webctrl aaname='Create Export' parentid='mainRouterOutlet' tag='SPAN' /&gt;">
+                  <ui:Target.TimeoutMS>
+                    <InArgument x:TypeArguments="x:Int32" />
+                  </ui:Target.TimeoutMS>
+                  <ui:Target.WaitForReady>
+                    <InArgument x:TypeArguments="ui:WaitForReady" />
+                  </ui:Target.WaitForReady>
+                </ui:Target>
+              </ui:Click.Target>
+            </ui:Click>
+          </Sequence>
+        </ActivityAction>
+      </ui:BrowserScope.Body>
+    </ui:BrowserScope>
+  </Sequence>
+</Activity>
